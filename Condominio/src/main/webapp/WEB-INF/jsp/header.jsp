@@ -14,7 +14,7 @@
 <body>
 	<!-- ================================================================= -->
 	<div class="container">
-		<h2>Sistema de Controle de Horas</h2>
+		<h2>Sistema de Condominio</h2>
 		<ul class="nav nav-tabs" role="tablist">
 			<li><a href="${linkTo[IndexController].index()}">Home</a></li>
 			<li><a href="${linkTo[UsuarioController].lista()}">Usuarios</a></li>
