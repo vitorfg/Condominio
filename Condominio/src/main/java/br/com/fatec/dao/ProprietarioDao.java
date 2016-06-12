@@ -1,7 +1,10 @@
 package br.com.fatec.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.fatec.model.Proprietario;
 
@@ -18,6 +21,11 @@ public class ProprietarioDao {
 		this.manager = manager;
 	}
 
+	public List<Proprietario> lista() {
+		TypedQuery<Proprietario> query = manager.createQuery("select prop from Proprietario pro", Proprietario.class);
+		return query.getResultList();
+	}
+	
 	public void adiciona(Proprietario proprietario) {
 		if (proprietario.getId() == 0) {
 			manager.persist(proprietario);

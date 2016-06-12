@@ -1,5 +1,7 @@
 package br.com.fatec.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Post;
@@ -7,6 +9,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fatec.dao.ProprietarioDao;
+import br.com.fatec.model.Apartamento;
 import br.com.fatec.model.Proprietario;
 
 public class ProprietarioController {
@@ -27,12 +30,17 @@ public class ProprietarioController {
 
 	public void form() {
 	}
-
+	
+	public void lista() {
+		List<Proprietario> proprietarios = proprietarioDao.lista();
+		result.include("proprietarios", proprietarios);
+	}
+	
 	@IncludeParameters
 	@Post
 	public void adiciona(Proprietario proprietario) {
 		validator.onErrorForwardTo(this).form();
-		// proprietarioDao.adiciona(proprietario);
+		proprietarioDao.adiciona(proprietario);
 		// result.redirectTo(this).lista();
 	}
 }
