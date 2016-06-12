@@ -22,8 +22,7 @@ public class Apartamento {
 	
 	@NotEmpty
 	private String tipoOcupacao;
-	
-	@NotEmpty
+
 	private Proprietario proprietario;
 
 	public long getId() {
