@@ -40,7 +40,7 @@ public class Condominio {
 	}
 
 	@NotEmpty
-	private double valorDespesas; //Linha a descomentar quando criada a classe Despesa | Criar get/set
+	private double valorDespesas;
 
 	@NotEmpty
 	private double jurosAtraso;
