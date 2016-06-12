@@ -1,6 +1,7 @@
 package br.com.fatec.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -23,13 +24,25 @@ public class CondominioController {
 	private Validator validator;
 	private Result result;
 	private Condominio condominio;
+	private ArrayList<Double> despesasEspecificas;
 
-	public CondominioController(Apartamento apartamento, Calendar dataVencimento) {
+	public CondominioController(Apartamento apartamento, Calendar dataVencimento/*, Despesa despesaComum*/, ArrayList<Double> despesasEspecificas) {
 		condominio.setApartamento(apartamento);
 		condominio.setDataVencimento(dataVencimento);
 		condominio.setDataReferencia(getDataAtual("MM/yyyy"));
 		condominio.setDataEmissao(getDataAtual("dd/MM/yyyy"));
-		// despesa = new DespesaComum();
+		this.despesasEspecificas = despesasEspecificas;
+//		condominio.setDespesa(despesaComum.getValor() + calcDespesasEspecificas());
+	}
+	
+	private double calcDespesasEspecificas() {
+		double total = 0;
+		
+		for (double desp : despesasEspecificas) {
+			total += desp;
+		}
+		
+		return total;
 	}
 
 	private String getDataAtual(String format) {
@@ -42,18 +55,21 @@ public class CondominioController {
 	}
 
 	public double getTotal() {
-//		condominio.setTotalPagar(condominio.getDespesa().getValor() + juros());
+		condominio.setTotalPagar(condominio.getValorDespesas() + juros());
 		return condominio.getTotalPagar();
 	}
 
 	private double juros() {
 
 		if (condominio.getDataVencimento().get(Calendar.MONTH) == condominio.getDataPagamento().get(Calendar.MONTH)) {
-			if ((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) - condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
+			if ((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH)
+					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
 //				return condominio.getDespesa().getValor() * 0.02;
 			}
-		} else if (condominio.getDataVencimento().get(Calendar.MONTH) < condominio.getDataPagamento().get(Calendar.MONTH)) {
-			if (((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) + 30) - condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
+		} else if (condominio.getDataVencimento().get(Calendar.MONTH) < condominio.getDataPagamento()
+				.get(Calendar.MONTH)) {
+			if (((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) + 30)
+					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
 //				return condominio.getDespesa().getValor() * 0.05;
 			}
 		}

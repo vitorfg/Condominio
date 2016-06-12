@@ -31,8 +31,16 @@ public class Condominio {
 	@NotNull
 	private Calendar dataPagamento;
 
-//	@NotEmpty
-//	private Despesa valorDespesas; //Linha a descomentar quando criada a classe Despesa | Criar get/set
+	public double getValorDespesas() {
+		return valorDespesas;
+	}
+
+	public void setValorDespesas(double valorDespesas) {
+		this.valorDespesas = valorDespesas;
+	}
+
+	@NotEmpty
+	private double valorDespesas; //Linha a descomentar quando criada a classe Despesa | Criar get/set
 
 	@NotEmpty
 	private double jurosAtraso;
