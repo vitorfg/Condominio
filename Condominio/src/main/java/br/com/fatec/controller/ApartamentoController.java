@@ -16,12 +16,9 @@ public class ApartamentoController {
 	private ApartamentoDao apartamentoDao;
 	private Validator validator;
 	private Result result;
-	
-	
-	
+
 	public ApartamentoController() {
 	}
-
 
 	@Inject
 	public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result) {
@@ -30,18 +27,15 @@ public class ApartamentoController {
 		this.result = result;
 	}
 
+	public void form() {
+	}
 
-
-	public void form (){}
-	
-	
 	@IncludeParameters
 	@Post
-	public void adiciona(Apartamento apartamento){
-		validator.onErrorForwardTo(this).form(); //caso der erro fica na tela que está
-		apartamentoDao.adiciona(apartamento); // adiciona
-		//result.redirectTo(this).lista(); // redireciona para a lista
+	public void adiciona(Apartamento apartamento) {
+		validator.onErrorForwardTo(this).form();
+		apartamentoDao.adiciona(apartamento);
+		// result.redirectTo(this).lista();
 	}
-	
-	
+
 }
