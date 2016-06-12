@@ -32,7 +32,7 @@ public class ProprietarioController {
 	@Post
 	public void adiciona(Proprietario proprietario) {
 		validator.onErrorForwardTo(this).form();
-		// apartamentoDao.adiciona(proprietario);
+		// proprietarioDao.adiciona(proprietario);
 		// result.redirectTo(this).lista();
 	}
 }
