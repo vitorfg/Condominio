@@ -24,15 +24,30 @@ public class CondominioController {
 	private Validator validator;
 	private Result result;
 	private Condominio condominio;
-	private ArrayList<Double> despesasEspecificas;
 
-	public CondominioController(Apartamento apartamento, Calendar dataVencimento/*, Despesa despesaComum*/, ArrayList<Double> despesasEspecificas) {
+	public CondominioController(Apartamento apartamento, Calendar dataVencimento, Condominio condominio) {
 		condominio.setApartamento(apartamento);
 		condominio.setDataVencimento(dataVencimento);
 		condominio.setDataReferencia(getDataAtual("MM/yyyy"));
 		condominio.setDataEmissao(getDataAtual("dd/MM/yyyy"));
-		this.despesasEspecificas = despesasEspecificas;
-//		condominio.setDespesa(despesaComum.getValor() + calcDespesasEspecificas());
+		this.condominio = condominio;
+	}
+	
+
+
+	private String getDataAtual(String format) {
+		SimpleDateFormat fmt = new SimpleDateFormat(format);
+		Calendar calendar = new GregorianCalendar();
+		Date data = new Date();
+		calendar.setTime(data);
+
+		return fmt.format(calendar.getTime());
+	}
+
+	/* NECESSITA DA CLASSE DESPESAS PARA AJUSTAR OS METODOS	
+	public double getTotal() {
+		condominio.setTotalPagar(condominio.getValorDespesas() + juros());
+		return condominio.getTotalPagar();
 	}
 	
 	private double calcDespesasEspecificas() {
@@ -44,37 +59,38 @@ public class CondominioController {
 		
 		return total;
 	}
-
-	private String getDataAtual(String format) {
-		SimpleDateFormat fmt = new SimpleDateFormat(format);
-		Calendar calendar = new GregorianCalendar();
-		Date data = new Date();
-		calendar.setTime(data);
-
-		return fmt.format(calendar.getTime());
-	}
-
-	public double getTotal() {
-		condominio.setTotalPagar(condominio.getValorDespesas() + juros());
-		return condominio.getTotalPagar();
-	}
-
-	private double juros() {
-
-		if (condominio.getDataVencimento().get(Calendar.MONTH) == condominio.getDataPagamento().get(Calendar.MONTH)) {
-			if ((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH)
-					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
-//				return condominio.getDespesa() * 0.02;
-			}
-		} else if (condominio.getDataVencimento().get(Calendar.MONTH) < condominio.getDataPagamento()
-				.get(Calendar.MONTH)) {
-			if (((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) + 30)
-					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
-//				return condominio.getDespesa() * 0.05;
-			}
+	
+		
+	public void geraValorPagamento(){
+		double valorDespesasEspecificas = 0, valorSemJuros = 0, valorComJuros;
+		for(DespesasEspecificas de: condominio.getDesoesasEspecificas()){
+			valorDespesasEspecificas += de.getValor();
 		}
-
-		return 0;
+		valorSemJuros = condominio.getGetDespesaComum().getValor() + valorDespesasEspecificas;
+		valorComJuros = valorSemJuros + valorSemJuros * condominio.getPorecentagemJuros();
+		condominio.setTotalPagar(valorComJuros);
+	}
+	*/
+	
+	public boolean atrasou(){
+		if(condominio.getDataVencimento().compareTo(condominio.getDataPagamento()) < 0 ){
+			return true;
+		} else{
+			return false;
+		}
+	}
+	
+	public void defineJuros() {
+		if(atrasou()){
+			if (condominio.isPagouAtual()){
+				condominio.setPorecentagemJuros(condominio.getPorecentagemJuros() + 0.02);
+			} else {
+				// instancia o condominio do mes que vem com o juros do mes passado;
+			}
+		} else {
+			condominio.setPorecentagemJuros(condominio.getPorecentagemJuros());
+		}
+	
 	}
 
 	@Inject

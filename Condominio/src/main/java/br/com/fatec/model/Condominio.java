@@ -1,5 +1,6 @@
 package br.com.fatec.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
@@ -13,7 +14,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class Condominio {
 
-	private Apartamento apartamento;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,34 +30,27 @@ public class Condominio {
 
 	@NotNull
 	private Calendar dataPagamento;
-
-	public double getValorDespesas() {
-		return valorDespesas;
-	}
-
-	public void setValorDespesas(double valorDespesas) {
-		this.valorDespesas = valorDespesas;
-	}
+	
+	@NotNull
+	private Apartamento apartamento;
+	
+//	@NotNull
+//	private DespesaComum despesaComum;
+//	
+//	@NotNull
+//	private ArrayList<DespesasEspecificas> despesasEspecificas;
+	
+	@NotEmpty
+	private boolean late;
+	
+	@NotEmpty
+	private boolean pagouAtual;
 
 	@NotEmpty
-	private double valorDespesas;
-
-	@NotEmpty
-	private double jurosAtraso;
+	private double porecentagemJuros;
 
 	@NotEmpty
 	private double totalPagar;
-
-	@NotNull
-	private Apartamento apt;
-
-	public Apartamento getApartamento() {
-		return apartamento;
-	}
-
-	public void setApartamento(Apartamento apartamento) {
-		this.apartamento = apartamento;
-	}
 
 	public long getId() {
 		return id;
@@ -99,12 +92,53 @@ public class Condominio {
 		this.dataPagamento = dataPagamento;
 	}
 
-	public double getJurosAtraso() {
-		return jurosAtraso;
+	public Apartamento getApartamento() {
+		return apartamento;
 	}
 
-	public void setJurosAtraso(double jurosAtraso) {
-		this.jurosAtraso = jurosAtraso;
+	public void setApartamento(Apartamento apartamento) {
+		this.apartamento = apartamento;
+	}
+
+//	public DespesaComum getDespesaComum() {
+//		return despesaComum;
+//	}
+//
+//	public void setDespesaComum(DespesaComum despesaComum) {
+//		this.despesaComum = despesaComum;
+//	}
+//
+//	public ArrayList<DespesasEspecificas> getDespesasEspecificas() {
+//		return despesasEspecificas;
+//	}
+//
+//	public void setDespesasEspecificas(ArrayList<DespesasEspecificas> despesasEspecificas) {
+//		this.despesasEspecificas = despesasEspecificas;
+//	}
+
+	public boolean isLate() {
+		return late;
+	}
+
+	public void setLate(boolean late) {
+		this.late = late;
+	}
+	
+
+	public boolean isPagouAtual() {
+		return pagouAtual;
+	}
+
+	public void setPagouAtual(boolean pagouAtual) {
+		this.pagouAtual = pagouAtual;
+	}
+
+	public double getPorecentagemJuros() {
+		return porecentagemJuros;
+	}
+
+	public void setPorecentagemJuros(double porecentagemJuros) {
+		this.porecentagemJuros = porecentagemJuros;
 	}
 
 	public double getTotalPagar() {
@@ -114,13 +148,5 @@ public class Condominio {
 	public void setTotalPagar(double totalPagar) {
 		this.totalPagar = totalPagar;
 	}
-
-	public Apartamento getApt() {
-		return apt;
-	}
-
-	public void setApt(Apartamento apt) {
-		this.apt = apt;
-	}
-
+	
 }
