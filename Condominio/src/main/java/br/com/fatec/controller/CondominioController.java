@@ -56,11 +56,9 @@ public class CondominioController {
 			if (((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) + 30) - condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
 //				return condominio.getDespesa().getValor() * 0.05;
 			}
-		} else {
-			return 0;
 		}
 
-		return 0; //Linha a remover quanod criada a classe Despesa.
+		return 0;
 	}
 
 	@Inject
