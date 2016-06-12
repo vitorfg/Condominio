@@ -22,7 +22,7 @@ public class ProprietarioDao {
 	}
 
 	public List<Proprietario> lista() {
-		TypedQuery<Proprietario> query = manager.createQuery("select prop from Proprietario pro", Proprietario.class);
+		TypedQuery<Proprietario> query = manager.createQuery("select prop from Proprietario prop", Proprietario.class);
 		return query.getResultList();
 	}
 	
