@@ -64,13 +64,13 @@ public class CondominioController {
 		if (condominio.getDataVencimento().get(Calendar.MONTH) == condominio.getDataPagamento().get(Calendar.MONTH)) {
 			if ((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH)
 					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
-//				return condominio.getDespesa().getValor() * 0.02;
+//				return condominio.getDespesa() * 0.02;
 			}
 		} else if (condominio.getDataVencimento().get(Calendar.MONTH) < condominio.getDataPagamento()
 				.get(Calendar.MONTH)) {
 			if (((condominio.getDataPagamento().get(Calendar.DAY_OF_MONTH) + 30)
 					- condominio.getDataVencimento().get(Calendar.DAY_OF_MONTH)) > 0) {
-//				return condominio.getDespesa().getValor() * 0.05;
+//				return condominio.getDespesa() * 0.05;
 			}
 		}
 
