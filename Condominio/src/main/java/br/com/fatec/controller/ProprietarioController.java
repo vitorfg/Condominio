@@ -41,6 +41,6 @@ public class ProprietarioController {
 	public void adiciona(Proprietario proprietario) {
 		validator.onErrorForwardTo(this).form();
 		proprietarioDao.adiciona(proprietario);
-		// result.redirectTo(this).lista();
+		result.redirectTo(this).lista();
 	}
 }
