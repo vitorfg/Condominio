@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
@@ -12,6 +13,7 @@ import br.com.fatec.dao.ProprietarioDao;
 import br.com.fatec.model.Apartamento;
 import br.com.fatec.model.Proprietario;
 
+@Controller
 public class ProprietarioController {
 
 	private ProprietarioDao proprietarioDao;

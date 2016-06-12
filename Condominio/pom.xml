@@ -81,7 +81,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>alura-horas</finalName>
+		<finalName>condominio</finalName>
 		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
 		<plugins>
 			<plugin>
