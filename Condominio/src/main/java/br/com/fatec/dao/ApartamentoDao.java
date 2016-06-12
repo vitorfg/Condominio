@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.fatec.model.Apartamento;
 
@@ -19,26 +20,26 @@ public class ApartamentoDao {
 	public ApartamentoDao(EntityManager manager) {
 		this.manager = manager;
 	}
-	
-	public List<Apartamento> lista(){
-		//terminar metodo
-		return null;
+
+	public List<Apartamento> lista() {
+		TypedQuery<Apartamento> query = manager.createQuery("select apto from Apartamento apto", Apartamento.class);
+		return query.getResultList();
 	}
-	
-	public void adiciona(Apartamento apartamento){ // se não possuir id insere  no banco, se possuir id altera
-		if(apartamento.getId() == 0){
+
+	public void adiciona(Apartamento apartamento) {
+		if (apartamento.getId() == 0) {
 			manager.persist(apartamento);
 		} else {
 			manager.merge(apartamento);
 		}
 	}
-	
-	public Apartamento busca(long id){ // busca pelo id
+
+	public Apartamento busca(long id) {
 		return manager.find(Apartamento.class, id);
 	}
-	
-	public void deleta (long id){ // deleta pelo id
+
+	public void deleta(long id) {
 		manager.remove(manager.getReference(Apartamento.class, id));
 	}
-	
+
 }

@@ -1,5 +1,7 @@
 package br.com.fatec.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -30,12 +32,17 @@ public class ApartamentoController {
 	public void form() {
 	}
 
+	public void lista() {
+		List<Apartamento> apartamentos = apartamentoDao.lista();
+		result.include("apartamentos", apartamentos);
+	}
+
 	@IncludeParameters
 	@Post
 	public void adiciona(Apartamento apartamento) {
 		validator.onErrorForwardTo(this).form();
 		apartamentoDao.adiciona(apartamento);
-		// result.redirectTo(this).lista();
+		result.redirectTo(this).lista();
 	}
 
 }
