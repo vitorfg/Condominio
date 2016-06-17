@@ -1,36 +1,30 @@
 package br.com.fatec.model;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Proprietario {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotEmpty
-	private String nomeProprietario;
-	
-	private String RG;
-	
-	@NotEmpty
-	private String CPF;
-	
-	@NotEmpty
-	private String fone1;
-	
-	private String fone2;
-	
+
 	@NotNull
-	private ArrayList<Apartamento> apts;
+	private String nomeProprietario;
+
+	private String rg;
+
+	@NotNull
+	private String cpf;
+
+	@NotNull
+	private String fone1;
+
+	private String fone2;
 
 	public long getId() {
 		return id;
@@ -48,20 +42,20 @@ public class Proprietario {
 		this.nomeProprietario = nomeProprietario;
 	}
 
-	public String getRG() {
-		return RG;
+	public String getRg() {
+		return rg;
 	}
 
-	public void setRG(String rG) {
-		RG = rG;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getFone1() {
@@ -79,5 +73,5 @@ public class Proprietario {
 	public void setFone2(String fone2) {
 		this.fone2 = fone2;
 	}
-	
+
 }

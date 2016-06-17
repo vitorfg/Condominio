@@ -5,7 +5,8 @@ import br.com.caelum.vraptor.Path;
 
 @Controller
 public class IndexController {
-
+	
 	@Path("/")
-	public void index() {}
+	public void index() {
+	}
 }

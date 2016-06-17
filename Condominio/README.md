@@ -1,13 +1,11 @@
-# VRaptor blank project
+Este é um projeto de modelagem e desenvolvimento de um sistema para condomínios desenvolvido por alunos da Fatec Zona Leste para a matéria de Engenharia de Software II.
 
-This is a blank project to help you to use VRaptor. You can easily import in you IDE as Maven project.
+Integrantes do Grupo:
 
-Este é um projeto em branco para ajudar você a usar o VRaptor. Você pode facilmente importá-lo na sua IDE favorita como um projeto Maven.
+    Emerson Santos 151051-7
+    Erick Rosa 151052-5
+    Guilherme Vasconcellos 151057-6
+    Vitor Ferreira Garcia 151076-2
+    William Guedes 151080-0
 
-Após criar seu projeto você pode rodá-lo com um tomcat7 ou +:
 
-```
-mvn tomcat7:run
-```
-
-Cuidado para *jamais* executar `mvn tomcat:run` pois ele usará um tomcat6 (incompatível).

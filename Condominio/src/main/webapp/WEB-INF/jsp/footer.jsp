@@ -1,4 +1,2 @@
-		</main>
-	</div>
 </body>
 </html>

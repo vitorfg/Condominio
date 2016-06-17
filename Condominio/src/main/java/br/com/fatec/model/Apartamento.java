@@ -4,33 +4,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Apartamento {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotEmpty
 	private int numeroApt;
-	
+
 	@NotEmpty
 	private int qtdQuartos;
-	
+
 	@NotEmpty
 	private String tipoOcupacao;
-	
-	@NotEmpty
+
+	@ManyToOne
 	private Proprietario proprietario;
 
 	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -65,6 +66,5 @@ public class Apartamento {
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
-	
-	
+
 }
