@@ -18,7 +18,7 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					<label for="numeroApt">Nº Apartamento *</label> <input
-						id="numeroApt" class="form-control" type="text"
+						id="numeroApt" class="form-control" type="number"
 						name="apartamento.numeroApt" value="${apartamento.numeroApt}">
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					<label for="qtdQuartos">Quantidade de quartos *</label> <input
-						id="qtdQuartos" class="form-control" type="text"
+						id="qtdQuartos" class="form-control" type="number"
 						name="apartamento.qtdQuartos" value="${apartamento.qtdQuartos}">
 				</div>
 			</div>
@@ -34,10 +34,10 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="proprietario">Proprietário *</label> <select
-						class="form-control" id="proprietarios">
+					<label for="proprietario">Proprietário *</label>
+					<select class="form-control" id="proprietario">
 						<c:forEach var="p" items="${proprietarios}">
-							<option value="${p.nomeProprietario}">${p.nomeProprietario}</option>
+							<option value="${p}">${p.nomeProprietario}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -49,9 +49,9 @@
 					<label for="tipoOcupacao">Tipo de ocupação *</label> <select
 						class="form-control" id="tipoOcupacao"
 						name="apartamento.tipoOcupacao">
-						<option value="${apartamento.tipoOcupacao}">Proprietário</option>
-						<option value="${apartamento.tipoOcupacao}">Inquilino</option>
-						<option value="${apartamento.tipoOcupacao}">Vazio</option>
+						<option value="Proprietário">Proprietário</option>
+						<option value="Inquilino">Inquilino</option>
+						<option value="Vazio">Vazio</option>
 					</select>
 				</div>
 			</div>
