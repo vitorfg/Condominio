@@ -1,10 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
-<div class="container">
-	<h1>Proprietários</h1>
 
-	<a href="${linkTo[ProprietarioController].form()}"></a>
-	<div class="w3-responsive">
+<h1>Proprietários</h1>
+
+<div class="w3-responsive">
 	<table class="w3-table w3-striped w3-bordered w3-border">
 		<thead>
 			<tr>
@@ -41,6 +40,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	</div>
 </div>
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />
