@@ -29,14 +29,14 @@ public class ProprietarioController {
 	}
 
 	public ProprietarioController() {
-	
+
 	}
-	
+
 	/* MÉTODOS VRAPTOR */
 	public void form() {
-		
+
 	}
-	
+
 	public void lista() {
 		List<Proprietario> proprietarios = proprietarioDao.lista();
 		result.include("proprietarios", proprietarios);
@@ -49,7 +49,7 @@ public class ProprietarioController {
 		proprietarioDao.adiciona(proprietario);
 		result.redirectTo(this).lista();
 	}
-	
+
 	@Get("/proprietario/{id}")
 	public void altera(long id) {
 		Proprietario proprietario = proprietarioDao.busca(id);
@@ -62,4 +62,5 @@ public class ProprietarioController {
 		proprietarioDao.deleta(id);
 		result.redirectTo(this).lista();
 	}
+	
 }
