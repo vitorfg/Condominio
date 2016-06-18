@@ -37,7 +37,6 @@ public class ApartamentoController {
 
 	/* MÉTODOS VRAPTOR */
 	public void form() {
-		// BO
 		List<Proprietario> proprietarios = proprietarioDao.lista();
 		result.include("proprietarios", proprietarios);
 	}

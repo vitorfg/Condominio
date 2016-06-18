@@ -12,8 +12,10 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fatec.dao.ApartamentoDao;
+import br.com.fatec.dao.CondominioDao;
 import br.com.fatec.dao.DespesasDao;
 import br.com.fatec.model.Apartamento;
+import br.com.fatec.model.Condominio;
 import br.com.fatec.model.Despesas;
 
 @Controller
@@ -22,19 +24,23 @@ public class DespesasController {
 	private DespesasDao despesasDao;
 	private Validator validator;
 	private Result result;
+	private CondominioDao condominioDao;
 
 	public DespesasController() {
 	}
 
 	@Inject
-	public DespesasController(DespesasDao despesasDao, Validator validator, Result result) {
+	public DespesasController(DespesasDao despesasDao, Validator validator, Result result,CondominioDao condominioDao) {
 		this.despesasDao = despesasDao;
 		this.validator = validator;
 		this.result = result;
+		this.condominioDao = condominioDao;
 	}
 
 	/* MÉTODOS VRAPTOR */
 	public void form() {
+		List<Condominio> condominios = condominioDao.lista();
+		result.include("condominios", condominios);
 	}
 
 	@IncludeParameters
