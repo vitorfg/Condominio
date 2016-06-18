@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.fatec.dao.ApartamentoDao;
 import br.com.fatec.dao.ProprietarioDao;
 import br.com.fatec.model.Apartamento;
+import br.com.fatec.model.Proprietario;
 
 @Controller
 public class ApartamentoController {
@@ -26,18 +27,19 @@ public class ApartamentoController {
 	public ApartamentoController() {
 	}
 
-	@Inject
-	public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result) {
-		this.apartamentoDao = apartamentoDao;
-		this.validator = validator;
-		this.result = result;
-	}
+		@Inject
+		public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result,ProprietarioDao proprietarioDao) {
+			this.apartamentoDao = apartamentoDao;
+			this.validator = validator;
+			this.result = result;
+			this.proprietarioDao = proprietarioDao;
+		}
 
 	/* MÉTODOS VRAPTOR */
 	public void form() {
 		// BO
-		// List<Proprietario> proprietarios = proprietarioDao.lista();
-		// result.include("proprietarios", proprietarios);
+		List<Proprietario> proprietarios = proprietarioDao.lista();
+		result.include("proprietarios", proprietarios);
 	}
 
 	@IncludeParameters
