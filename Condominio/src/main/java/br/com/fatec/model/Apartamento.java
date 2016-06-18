@@ -35,18 +35,18 @@ public class Apartamento {
 	}
 
 	public int getNumeroApt() {
-		return numeroApt;
+		return numeroApt.intValue();
 	}
 
-	public void setNumeroApt(int numeroApt) {
+	public void setNumeroApt(Integer numeroApt) {
 		this.numeroApt = numeroApt;
 	}
 
 	public int getQtdQuartos() {
-		return qtdQuartos;
+		return qtdQuartos.intValue();
 	}
 
-	public void setQtdQuartos(int qtdQuartos) {
+	public void setQtdQuartos(Integer qtdQuartos) {
 		this.qtdQuartos = qtdQuartos;
 	}
 
@@ -65,5 +65,4 @@ public class Apartamento {
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
-
 }
