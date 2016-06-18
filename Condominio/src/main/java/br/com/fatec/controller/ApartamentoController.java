@@ -53,6 +53,8 @@ public class ApartamentoController {
 	@IncludeParameters
 	@Post
 	public void adiciona(Apartamento apartamento) {
+		System.out.println("Dados combo:\n" + "Tipo Ocupação: " + apartamento.getTipoOcupacao());	
+		
 		validator.onErrorForwardTo(this).form();
 		apartamentoDao.adiciona(apartamento);
 		result.redirectTo(this).lista(); // mudar para .form()
@@ -62,7 +64,7 @@ public class ApartamentoController {
 	public void altera(long id) {
 		Apartamento apartamento = apartamentoDao.busca(id);
 		result.include("apartamento", apartamento);
-		result.of(this).lista(); // mudar para .form()
+		result.of(this).form(); // mudar para .form()
 	}
 
 	@Delete("apartamento/{id}")
