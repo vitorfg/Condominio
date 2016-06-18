@@ -21,9 +21,6 @@ public class ProprietarioController {
 	private Validator validator;
 	private Result result;
 
-	public ProprietarioController() {
-	}
-
 	@Inject
 	ProprietarioController(ProprietarioDao proprietarioDao, Result result, Validator validator) {
 		this.proprietarioDao = proprietarioDao;
@@ -31,8 +28,18 @@ public class ProprietarioController {
 		this.validator = validator;
 	}
 
+	public ProprietarioController() {
+	
+	}
+	
 	/* MÉTODOS VRAPTOR */
 	public void form() {
+		
+	}
+	
+	public void lista() {
+		List<Proprietario> proprietarios = proprietarioDao.lista();
+		result.include("proprietarios", proprietarios);
 	}
 
 	@IncludeParameters
@@ -42,12 +49,7 @@ public class ProprietarioController {
 		proprietarioDao.adiciona(proprietario);
 		result.redirectTo(this).lista();
 	}
-
-	public void lista() {
-		List<Proprietario> proprietarios = proprietarioDao.lista();
-		result.include("proprietarios", proprietarios);
-	}
-
+	
 	@Get("/proprietario/{id}")
 	public void altera(long id) {
 		Proprietario proprietario = proprietarioDao.busca(id);

@@ -26,15 +26,16 @@ public class DespesasController {
 	private Result result;
 	private CondominioDao condominioDao;
 
-	public DespesasController() {
-	}
-
 	@Inject
 	public DespesasController(DespesasDao despesasDao, Validator validator, Result result,CondominioDao condominioDao) {
 		this.despesasDao = despesasDao;
 		this.validator = validator;
 		this.result = result;
 		this.condominioDao = condominioDao;
+	}
+	
+	public DespesasController() {
+	
 	}
 
 	/* MÉTODOS VRAPTOR */
@@ -43,6 +44,11 @@ public class DespesasController {
 		result.include("condominios", condominios);
 	}
 
+	public void lista() {
+		List<Despesas> despesas = despesasDao.lista();
+		result.include("despesas", despesas);
+	}
+	
 	@IncludeParameters
 	@Post
 	public void adiciona(Despesas despesas) {
@@ -50,11 +56,6 @@ public class DespesasController {
 		despesas = carregaDespesas(despesas);
 		despesasDao.adiciona(despesas);
 		result.redirectTo(this).lista();
-	}
-
-	public void lista() {
-		List<Despesas> despesas = despesasDao.lista();
-		result.include("despesas", despesas);
 	}
 
 	@Get("/despesa/{id}")

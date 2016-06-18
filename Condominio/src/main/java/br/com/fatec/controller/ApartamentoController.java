@@ -24,21 +24,30 @@ public class ApartamentoController {
 	private Result result;
 	private ProprietarioDao proprietarioDao;
 
-	public ApartamentoController() {
+	
+
+	@Inject
+	public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result,
+			ProprietarioDao proprietarioDao) {
+		this.apartamentoDao = apartamentoDao;
+		this.validator = validator;
+		this.result = result;
+		this.proprietarioDao = proprietarioDao;
 	}
 
-		@Inject
-		public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result,ProprietarioDao proprietarioDao) {
-			this.apartamentoDao = apartamentoDao;
-			this.validator = validator;
-			this.result = result;
-			this.proprietarioDao = proprietarioDao;
-		}
-
+	public ApartamentoController() {
+	
+	}
+	
 	/* MÉTODOS VRAPTOR */
 	public void form() {
 		List<Proprietario> proprietarios = proprietarioDao.lista();
 		result.include("proprietarios", proprietarios);
+	}
+
+	public void lista() {
+		List<Apartamento> apartamentos = apartamentoDao.lista();
+		result.include("apartamentos", apartamentos);
 	}
 
 	@IncludeParameters
@@ -47,11 +56,6 @@ public class ApartamentoController {
 		validator.onErrorForwardTo(this).form();
 		apartamentoDao.adiciona(apartamento);
 		result.redirectTo(this).lista(); // mudar para .form()
-	}
-
-	public void lista() {
-		List<Apartamento> apartamentos = apartamentoDao.lista();
-		result.include("apartamentos", apartamentos);
 	}
 
 	@Get("apartamento/{id}")
@@ -65,10 +69,6 @@ public class ApartamentoController {
 	public void deleta(long id) {
 		apartamentoDao.deleta(id);
 		result.redirectTo(this).lista();
-	}
-
-	public void buscar(Apartamento apartamento) {
-		apartamentoDao.busca(apartamento.getId());
 	}
 
 }

@@ -12,15 +12,21 @@ public class DespesasDao {
 
 	private EntityManager manager;
 
-	public DespesasDao() {
-	}
-
 	@Inject
 	public DespesasDao(EntityManager manager) {
 		this.manager = manager;
 	}
 
+	public DespesasDao() {
+
+	}
+
 	/* MÉTODOS VRAPTOR */
+	public List<Despesas> lista() {
+		TypedQuery<Despesas> query = manager.createQuery("select desp from Despesas desp", Despesas.class);
+		return query.getResultList();
+	}
+	
 	public void adiciona(Despesas despesas) {
 		if (despesas.getId() == 0) {
 			manager.persist(despesas);
@@ -29,17 +35,16 @@ public class DespesasDao {
 		}
 	}
 
+	public Despesas busca(long id) {
+		return manager.find(Despesas.class, id);
+	}
+	
 	public void deleta(long id) {
 		manager.remove(manager.getReference(Despesas.class, id));
 	}
 
-	public Despesas busca(long id) {
-		return manager.find(Despesas.class, id);
-	}
+	
 
-	public List<Despesas> lista() {
-		TypedQuery<Despesas> query = manager.createQuery("select desp from Despesas desp", Despesas.class);
-		return query.getResultList();
-	}
+	
 
 }

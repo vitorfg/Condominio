@@ -12,16 +12,21 @@ public class CondominioDao {
 
 	private EntityManager manager;
 
-	public CondominioDao() {
-
-	}
-
 	@Inject
 	public CondominioDao(EntityManager manager) {
 		this.manager = manager;
 	}
+	
+	public CondominioDao() {
 
+	}
+	
 	/* MÉTODOS VRAPTOR */
+	public List<Condominio> lista() {
+		TypedQuery<Condominio> query = manager.createQuery("select cond from Condominio cond", Condominio.class);
+		return query.getResultList();
+	}
+	
 	public void adiciona(Condominio condominio) {
 		if (condominio.getId() == 0) {
 			manager.persist(condominio);
@@ -30,17 +35,16 @@ public class CondominioDao {
 		}
 	}
 
+	public Condominio busca(long id) {
+		return manager.find(Condominio.class, id);
+	}
+	
 	public void deleta(long id) {
 		manager.remove(manager.getReference(Condominio.class, id));
 	}
 
-	public Condominio busca(long id) {
-		return manager.find(Condominio.class, id);
-	}
+	
 
-	public List<Condominio> lista() {
-		TypedQuery<Condominio> query = manager.createQuery("select cond from Condominio cond", Condominio.class);
-		return query.getResultList();
-	}
+	
 
 }

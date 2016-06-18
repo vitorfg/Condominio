@@ -12,15 +12,21 @@ public class ApartamentoDao {
 
 	private EntityManager manager;
 
-	public ApartamentoDao() {
-	}
-
 	@Inject
 	public ApartamentoDao(EntityManager manager) {
 		this.manager = manager;
 	}
 
+	public ApartamentoDao() {
+	
+	}
+	
 	/* MÉTODOS VRAPTOR */
+	public List<Apartamento> lista() {
+		TypedQuery<Apartamento> query = manager.createQuery("select apto from Apartamento apto", Apartamento.class);
+		return query.getResultList();
+	}
+	
 	public void adiciona(Apartamento apartamento) {
 		if (apartamento.getId() == 0) {
 			manager.persist(apartamento);
@@ -28,18 +34,16 @@ public class ApartamentoDao {
 			manager.merge(apartamento);
 		}
 	}
+	
+	public Apartamento busca(long id) {
+		return manager.find(Apartamento.class, id);
+	}
 
 	public void deleta(long id) {
 		manager.remove(manager.getReference(Apartamento.class, id));
 	}
 
-	public Apartamento busca(long id) {
-		return manager.find(Apartamento.class, id);
-	}
-
-	public List<Apartamento> lista() {
-		TypedQuery<Apartamento> query = manager.createQuery("select apto from Apartamento apto", Apartamento.class);
-		return query.getResultList();
-	}
+	
+	
 
 }
