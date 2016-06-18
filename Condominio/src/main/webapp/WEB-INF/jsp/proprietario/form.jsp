@@ -9,6 +9,10 @@
 
 	<form action="${linkTo[ProprietarioController].adiciona(null)}"
 		method="post">
+		
+		<input id="id" class="form-control" type="number" name="proprietario.id"
+			value="${proprietario.id}"  style="display:none"/>
+		
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">

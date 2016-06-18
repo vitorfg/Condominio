@@ -10,6 +10,10 @@
 
 	<form action="${linkTo[ApartamentoController].adiciona(null)}"
 		method="post">
+		
+		<input id="id" class="form-control" type="number" name="apartamento.id"
+			value="${apartamento.id}"  style="display:none"/>
+		
 		<div class="row">
 			<div class="col-sm-3">
 				<div class="form-group">

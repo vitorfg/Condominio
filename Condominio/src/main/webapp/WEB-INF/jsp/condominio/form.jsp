@@ -7,8 +7,12 @@
 
 	<br>
 
-	<form action="${linkTo[CondominiosController].adiciona(null)}"
+	<form action="${linkTo[CondominioController].adiciona(null)}"
 		method="post">
+		
+		<input id="id" class="form-control" type="number" name="condominio.id"
+			value="${condominio.id}"  style="display:none"/>
+		
 		<div class="row"></div>
 		<div class="row">
 			<div class="col-sm-3">

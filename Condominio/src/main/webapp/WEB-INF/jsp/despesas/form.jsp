@@ -9,6 +9,10 @@
 
 	<form action="${linkTo[DespesasController].adiciona(null)}"
 		method="post">
+		
+		<input id="id" class="form-control" type="number" name="despesas.id"
+			value="${despesas.id}"  style="display:none"/>
+		
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="form-group">
