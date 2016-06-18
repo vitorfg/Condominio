@@ -57,8 +57,8 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-sm-6">
+			<div class="w3-row-padding">
+				<div class="w3-third conteudo">
 					<button class="w3-btn w3-round w3-ripple" type="submit">Salvar</button>
 				</div>
 			</div>
