@@ -17,13 +17,13 @@ public class Apartamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotEmpty
-	private int numeroApt;
+	@NotNull
+	private Integer numeroApt;
 
-	@NotEmpty
-	private int qtdQuartos;
+	@NotNull
+	private Integer qtdQuartos;
 
-	@NotEmpty
+	@NotNull
 	private String tipoOcupacao;
 
 	@ManyToOne
