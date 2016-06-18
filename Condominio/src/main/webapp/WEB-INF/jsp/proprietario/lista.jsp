@@ -4,7 +4,8 @@
 	<h1>Proprietários</h1>
 
 	<a href="${linkTo[ProprietarioController].form()}"></a>
-	<table class="table table-hover">
+	<div class="w3-responsive">
+	<table class="w3-table w3-striped w3-bordered w3-border">
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -40,5 +41,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 </div>
 <c:import url="/WEB-INF/jsp/footer.jsp" />
