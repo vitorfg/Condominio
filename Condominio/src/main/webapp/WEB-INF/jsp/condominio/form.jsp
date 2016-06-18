@@ -75,10 +75,9 @@
 			<div class="col-sm-3">
 				<div class="form-group">
 					<label for="apartamento">Apartamento *</label> <select
-						class="form-control" id="apartamento"
-						name="condominio.apartamento">
-						<c:forEach var="apartamento" items="${apartamento}">
-							<option value="${condominio.apartamento}"></option>
+						class="form-control" id="apartamento">
+						<c:forEach var="a" items="${apartamentos}">
+							<option value="${a}">${a.numeroApt}</option>
 						</c:forEach>
 					</select>
 
