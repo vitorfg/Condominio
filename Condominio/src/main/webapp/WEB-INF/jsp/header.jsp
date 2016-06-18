@@ -78,6 +78,7 @@
 			<li><a class="active" href="#"><span
 					class="w3-opennav w3-medium-large" onclick="w3_open()">&#9776;</span></a></li>
 			<li><a href="${linkTo[IndexController].index()}" class="w3-gray">Home</a></li>
+			<li><a href="${linkTo[SobreController].form()}">Sobre</a></li>
 	</ul>
 
 	<script>
