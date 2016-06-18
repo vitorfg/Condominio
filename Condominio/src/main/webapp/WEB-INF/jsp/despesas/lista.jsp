@@ -3,7 +3,6 @@
 
 <h1>Despesas</h1>
 
-<a href="${linkTo[DespesasController].form()}"></a>
 <table class="table table-hover">
 	<thead>
 		<tr>

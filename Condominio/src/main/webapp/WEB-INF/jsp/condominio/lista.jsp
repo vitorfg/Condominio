@@ -3,7 +3,6 @@
 
 <h1>Condominio</h1>
 
-<a href="${linkTo[CondominioController].form()}"></a>
 <table class="table table-hover">
 	<thead>
 		<tr>

@@ -3,7 +3,6 @@
 
 <h1>Apartamentos</h1>
 
-<a href="${linkTo[ApartamentoController].form()}"></a>
 <table class="table table-hover">
 	<thead>
 		<tr>
