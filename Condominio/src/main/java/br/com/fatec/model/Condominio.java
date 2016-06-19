@@ -69,8 +69,8 @@ public class Condominio {
 		this.id = id;
 	}
 
-	private Calendar strToCal(String strDate) throws ParseException {
-		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(strDate);
+	private Calendar strToCal(String strDate, String format) throws ParseException {
+		Date date = (Date) new SimpleDateFormat(format).parse(strDate);
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 
@@ -87,7 +87,7 @@ public class Condominio {
 
 	public void setDataReferencia(String strDataReferencia) {
 		try {
-			dataReferencia = strToCal(strDataReferencia);
+			dataReferencia = strToCal(strDataReferencia, "dd/MM/yyyy");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -103,7 +103,7 @@ public class Condominio {
 
 	public void setDataEmissao(String strDataEmissao) {
 		try {
-			dataEmissao = strToCal(strDataEmissao);
+			dataEmissao = strToCal(strDataEmissao, "MM/yyyy");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -115,7 +115,7 @@ public class Condominio {
 
 	public void setDataVencimento(String strDataVencimento) {
 		try {
-			dataVencimento = strToCal(strDataVencimento);
+			dataVencimento = strToCal(strDataVencimento, "dd/MM/yyyy");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
