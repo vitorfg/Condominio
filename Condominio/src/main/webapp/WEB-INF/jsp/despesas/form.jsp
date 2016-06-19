@@ -18,7 +18,6 @@ $(document).ready(function(){
 	<input id="id" class="form-control" type="number" name="despesas.id"
 		value="${despesas.id}" style="display: none" />
 
-
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="descricao">Descrição *</label>

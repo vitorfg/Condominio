@@ -69,7 +69,7 @@
 					data-toggle="tooltip" title="Data de referência do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
 					maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia.time}"/>">
 			</div>
 		</div>
 
@@ -80,8 +80,8 @@
 					class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataEmissao" placeholder="e.x 10/06/2006"
 					data-toggle="tooltip" title="Data de emissão do condominio"
-					maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao}"/>">
+					onkeypress="mascara(this,fdata)" maxlength="10"
+					value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao.time}"/>">
 
 			</div>
 		</div>
@@ -94,7 +94,7 @@
 					name="condominio.dataVencimento" data-toggle="tooltip"
 					title="Data de vencimento do condominio" pattern="dd/MM/yyyy"
 					onkeypress="mascara(this,fdata)" maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento.time}"/>">
 
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 					data-toggle="tooltip" title="Data de pagamento do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
 					maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento.time}"/>">
 
 			</div>
 		</div>
