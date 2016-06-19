@@ -2,30 +2,13 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-		
-	<title>Controle de Condomínio</title>
-	
-	<style>
-	div.conteudo {
-        margin: 10px;
-    }
-    </style>
-	
-	
-</head>
-<body>
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <title>Controle de Condomínio</title>
 
@@ -35,81 +18,82 @@ div.conteudo {
 }
 </style>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<title>Controle de Condomínio</title>
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
-<!-- Mascara de entrada --> 
-
-	function mascara(objeto,funcao){
-	    varObjeto = objeto
-	    varFuncao = funcao
-	    setTimeout("funMascara()",1)
+	function mascara(objeto, funcao) {
+		varObjeto = objeto
+		varFuncao = funcao
+		setTimeout("funMascara()", 1)
 	}
 
-	function funMascara(){
-	    varObjeto.value = varFuncao(varObjeto.value)
+	function funMascara() {
+		varObjeto.value = varFuncao(varObjeto.value)
 	}
 
-	function soNumeros(variavel){
-	    return variavel.replace(/\D/g,"")
+	function soNumeros(variavel) {
+		return variavel.replace(/\D/g, "")
 	}
 
-	function ftelefone1(variavel){
-	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
-	    variavel=variavel.replace(/(\d{4})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
-	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
-	    // o quarto e quinto numero somente.
+	function ftelefone1(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/^(\d\d)(\d)/g, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+		variavel = variavel.replace(/(\d{4})(\d)/, "$1-$2") //Coloca hífen entre o quarto e o quinto dígitos
+		return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+		// o quarto e quinto numero somente.
 	}
 
+	function ftelefone2(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/^(\d\d)(\d)/g, "($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+		variavel = variavel.replace(/(\d{5})(\d)/, "$1-$2") //Coloca hífen entre o quarto e o quinto dígitos
+		return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+		// o quarto e quinto numero somente.
+	}
 
-	function ftelefone2(variavel){
-	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
-	    variavel=variavel.replace(/(\d{5})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
-	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
-	    // o quarto e quinto numero somente.
+	function fcpf(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/(\d{3})(\d)/, "$1.$2") //Coloca um ponto entre o terceiro e o quarto dígitos
+		variavel = variavel.replace(/(\d{3})(\d)/, "$1.$2") //Coloca um ponto entre o terceiro e o quarto dígitos
+		//de novo (para o segundo bloco de números)
+		variavel = variavel.replace(/(\d{3})(\d{1,2})$/, "$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+		return variavel
 	}
-	
-	function fcpf(variavel){
-	    variavel=variavel.replace(/\D/g,"")                    //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-	                                             //de novo (para o segundo bloco de números)
-	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-	    return variavel
+
+	function frg(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/(\d{2})(\d)/, "$1.$2") //Coloca um ponto entre o terceiro e o quarto dígitos
+		variavel = variavel.replace(/(\d{3})(\d)/, "$1.$2") //Coloca um ponto entre o terceiro e o quarto dígitos
+		//de novo (para o segundo bloco de números)
+		variavel = variavel.replace(/(\d{3})(\d{1,2})$/, "$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+		return variavel
 	}
-	
-	function frg(variavel){
-	    variavel=variavel.replace(/\D/g,"")                    //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/(\d{2})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-	                                             //de novo (para o segundo bloco de números)
-	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-	    return variavel
+	function fcep(variavel) {
+		variavel = variavel.replace(/D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/^(\d{5})(\d)/, "$1-$2") //Esse é tão fácil que não merece explicações
+		return variavel
 	}
-	function fcep(variavel){
-	    variavel=variavel.replace(/D/g,"")                //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/^(\d{5})(\d)/,"$1-$2") //Esse é tão fácil que não merece explicações
-	    return variavel
+	function freferencia(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/^(\d\d)(\d)/g, "$1/$2") //Coloca barra em volta dos dois primeiros dígitos
+		variavel = variavel.replace(/(\d{4})(\d)/, "$1/$2") //Coloca hífen entre o quarto e o quinto dígitos
+		return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+		// o quarto e quinto numero somente.
 	}
-	function freferencia(variavel){
-	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2") //Coloca barra em volta dos dois primeiros dígitos
-	    variavel=variavel.replace(/(\d{4})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
-	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
-	    // o quarto e quinto numero somente.
+	function fdata(variavel) {
+		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
+		variavel = variavel.replace(/^(\d\d)(\d)/g, "$1/$2")
+		variavel = variavel.replace(/^(\d\d)(\d)/g, "$1/$2") //Coloca barra em volta dos dois primeiros dígitos
+		variavel = variavel.replace(/(\d{2})(\d)/, "$1/$2") //Coloca hífen entre o quarto e o quinto dígitos
+		return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+		// o quarto e quinto numero somente.
 	}
-	function fdata(variavel){
-	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
-	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")
-	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")   //Coloca barra em volta dos dois primeiros dígitos
-	    variavel=variavel.replace(/(\d{2})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
-	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
-	    // o quarto e quinto numero somente.
-	}
-	
+
 	//<!-- Menu Sidenav/função de sub menu -->
 	function myAccProp() {
 		var x = document.getElementById("AccProp");
@@ -162,7 +146,7 @@ div.conteudo {
 					.replace(" w3-black", "");
 		}
 	}
-	
+
 	function w3_open() {
 		document.getElementById("main").style.marginLeft = "25%";
 		document.getElementsByClassName("w3-sidenav")[0].style.width = "25%";
