@@ -70,7 +70,7 @@ public class DespesasController {
 		populaCombo();
 
 		Despesas despesa = despesasDao.busca(id);
-		result.include("despesas", despesa);
+		result.include("despesa", despesa);
 		result.of(this).form();
 	}
 
