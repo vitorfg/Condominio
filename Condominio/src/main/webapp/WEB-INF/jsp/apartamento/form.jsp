@@ -33,10 +33,9 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 				<label for="proprietario">Proprietário *</label> <select
-					class="form-control" id="proprietario">
+					class="form-control" id="proprietario" name="apartamento.idProp">
 					<c:forEach var="p" items="${proprietarios}">
-						<option value="${p}">${p.nomeProprietario}</option>
-						<!-- Resolver -->
+						<option value="${p.id}">${p.nomeProprietario}</option>
 					</c:forEach>
 				</select>
 			</div>

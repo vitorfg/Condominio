@@ -51,26 +51,26 @@
 		<div class="col-sm-3">
 			<div class="form-group">
 				<label for="condominio">Condominio *</label> <select
-					class="form-control" id="condominio" name="despesas.condominio">
-					<c:forEach var="elemento" items="${condominio}">
-						<option value="${despesas.condominio}"></option>
+					class="form-control" id="condominio" name="despesas.idCond">
+					<c:forEach var="d" items="${condominio}">
+						<option value="${d.id}">${d.descricao}</option>
 					</c:forEach>
 				</select>
-
 			</div>
 		</div>
 	</div>
-	<c:set var="id" value="${c.id}" scope="request"></c:set>
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
 				<label for="especifico">Específica</label> <input id="especifico"
 					class="radio-inline" type="radio" name="despesas.especifico"
-					value="${despesas.especifico}" /> &nbsp;
-				<!-- Linkar com variável boolean no java -->
+					value="true" />
+					
+					&nbsp;
+					
 				<label for="especifico">Comum</label> <input id="especifico"
 					class="radio-inline" type="radio" name="despesas.especifico"
-					value="${despesas.especifico}" checked="checked" />
+					value="false" checked="checked" />
 			</div>
 		</div>
 	</div>

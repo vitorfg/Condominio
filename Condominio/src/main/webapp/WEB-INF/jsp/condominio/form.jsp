@@ -119,13 +119,11 @@
 			<div class="w3-third conteudo">
 				<label for="apartamento">Apartamento *</label> <select
 					class="form-control w3-input w3-border w3-round-large"
-					id="apartamento" name="condominio.apartamento"
-					style="width: 129px; height: 38px;">
+					id="apartamento" name="condominio.idApt">
 					<c:forEach var="a" items="${apartamentos}">
-						<option value="${a}">${a.numeroApt}</option>
+						<option value="${a.id}">${a.numeroApt}</option>
 					</c:forEach>
 				</select>
-
 			</div>
 		</div>
 
@@ -154,12 +152,14 @@
 
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo" style="width: 371px;">
-			<label for="late">Atraso</label> <input id="late" class="w3-radio"
-				type="radio" name="condominio.late" value="${condominio.late}" />
-			&nbsp; <label for="pagouAtual">Pago no Mês Corrente</label> <input
-				id="pagouAtual" class="w3-radio" type="radio"
-				name="condominio.pagouAtual" value="${condominio.pagouAtual}" />
-			<!-- Linkar com variável boolean no java -->
+			<label for="late">Atraso</label> <input id="late" class="w3-validate"
+				type="checkbox" name="condominio.late" value=true />
+				
+				&nbsp;
+				
+				<label for="pagouAtual">Pago no Mês Corrente</label> <input id="pagouAtual"
+				class="w3-validate" type="checkbox" name="condominio.pagouAtual"
+				value=true />
 		</div>
 	</div>
 
