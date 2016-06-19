@@ -58,7 +58,7 @@ $(document).ready(function(){
 				<label for="rg">RG</label>
 				<input id="rg"	class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 402265885" data-toggle="tooltip" title="RG do proprietário"
-					name="proprietario.rg" value="${proprietario.rg}" />
+					name="proprietario.rg" onkeypress="mascara(this,frg)" maxlength="12" value="${proprietario.rg}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
@@ -66,7 +66,7 @@ $(document).ready(function(){
 				<label for="cpf">CPF *</label>
 				<input id="cpf"	class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 05814526581" data-toggle="tooltip" title="CPF do proprietário"
-					name="proprietario.cpf" value="${proprietario.cpf}" />
+					name="proprietario.cpf" onkeypress="mascara(this,fcpf)" maxlength="14" value="${proprietario.cpf}" />
 			</div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@ $(document).ready(function(){
 				<label for="fone1">Telefone 1 *</label>
 				<input id="fone1" class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone1" value="${proprietario.fone1}" />
+					name="proprietario.fone1" onkeypress="mascara(this,ftelefone)" maxlength="15" value="${proprietario.fone1}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
@@ -84,7 +84,7 @@ $(document).ready(function(){
 				<label for="fone2">Telefone 2</label>
 				<input id="fone2" class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone2" value="${proprietario.fone2}" />
+					name="proprietario.fone2" onkeypress="mascara(this,telefone)" maxlength="15" value="${proprietario.fone2}" />
 			</div>
 		</div>
 	</div>
