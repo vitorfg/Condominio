@@ -24,8 +24,6 @@ public class ApartamentoController {
 	private Result result;
 	private ProprietarioDao proprietarioDao;
 
-	
-
 	@Inject
 	public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result,
 			ProprietarioDao proprietarioDao) {
@@ -36,9 +34,9 @@ public class ApartamentoController {
 	}
 
 	public ApartamentoController() {
-	
+
 	}
-	
+
 	/* MÉTODOS VRAPTOR */
 	public void form() {
 		List<Proprietario> proprietarios = proprietarioDao.lista();
@@ -52,19 +50,19 @@ public class ApartamentoController {
 
 	@IncludeParameters
 	@Post
-	public void adiciona(Apartamento apartamento) {
-		System.out.println("Dados combo:\n" + "Tipo Ocupação: " + apartamento.getTipoOcupacao());	
+	public void adiciona(Apartamento apartamento) {		
+		apartamento.setProprietario(proprietarioDao.busca(apartamento.getIdProp()));
 		
 		validator.onErrorForwardTo(this).form();
 		apartamentoDao.adiciona(apartamento);
-		result.redirectTo(this).lista(); // mudar para .form()
+		result.redirectTo(this).lista();
 	}
 
 	@Get("apartamento/{id}")
 	public void altera(long id) {
 		Apartamento apartamento = apartamentoDao.busca(id);
 		result.include("apartamento", apartamento);
-		result.of(this).form(); // mudar para .form()
+		result.of(this).form();
 	}
 
 	@Delete("apartamento/{id}")

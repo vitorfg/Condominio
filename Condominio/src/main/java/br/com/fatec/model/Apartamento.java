@@ -26,6 +26,8 @@ public class Apartamento {
 	@ManyToOne
 	private Proprietario proprietario;
 
+	private long idProp;
+
 	public long getId() {
 		return id;
 	}
@@ -65,4 +67,13 @@ public class Apartamento {
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
+
+	public long getIdProp() {
+		return idProp;
+	}
+
+	public void setIdProp(long idProp) {
+		this.idProp = idProp;
+	}
+
 }

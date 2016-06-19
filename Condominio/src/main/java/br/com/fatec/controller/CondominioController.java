@@ -56,6 +56,8 @@ public class CondominioController {
 	@IncludeParameters
 	@Post
 	public void adiciona(Condominio condominio) {
+		condominio.setApartamento(apartamentoDao.busca(condominio.getIdApt()));
+		
 		validator.onErrorForwardTo(this).form();
 		condominio = carregaCondominio(condominio);
 		condominioDao.adiciona(condominio);

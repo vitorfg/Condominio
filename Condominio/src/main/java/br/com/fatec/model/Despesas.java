@@ -39,6 +39,8 @@ public class Despesas {
 	@ManyToOne
 	private Condominio condominio;
 
+	private long idCond;
+
 	public long getId() {
 		return id;
 	}
@@ -93,6 +95,14 @@ public class Despesas {
 
 	public void setCondominio(Condominio condominio) {
 		this.condominio = condominio;
+	}
+
+	public long getIdCond() {
+		return idCond;
+	}
+
+	public void setIdCond(long idCond) {
+		this.idCond = idCond;
 	}
 
 }

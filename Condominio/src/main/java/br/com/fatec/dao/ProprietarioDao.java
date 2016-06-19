@@ -35,7 +35,7 @@ public class ProprietarioDao {
 		}
 	}
 	
-	public Proprietario busca(long id) {
+	public Proprietario busca(long id) {	
 		return manager.find(Proprietario.class, id);
 	}
 	

@@ -45,6 +45,8 @@ public class Condominio {
 	@ManyToOne
 	private Apartamento apartamento;
 
+	private long idApt;
+
 	@NotEmpty
 	private boolean late;
 
@@ -155,6 +157,14 @@ public class Condominio {
 
 	public void setTotalPagar(double totalPagar) {
 		this.totalPagar = totalPagar;
+	}
+
+	public long getIdApt() {
+		return idApt;
+	}
+
+	public void setIdApt(long idApt) {
+		this.idApt = idApt;
 	}
 
 }
