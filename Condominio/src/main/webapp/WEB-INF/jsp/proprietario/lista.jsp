@@ -29,11 +29,9 @@
 							<span class="fa fa-file-text"></span>
 							</button>
 					</a></td>
-					<td>
-						<form action="${linkTo[ProprietarioController].deleta(p.id)}"
-							method="POST">
-							<button class="w3-btn btn-link" type="submit" name="_method"
-								value="DELETE">
+					<td>	
+						<form action="${linkTo[ProprietarioController].deleta(p.id)}" method="POST">
+							<button class="w3-btn btn-link" type="submit" name="_method" value="DELETE">
 								<span class="fa fa-trash"></span>
 							</button>
 						</form>

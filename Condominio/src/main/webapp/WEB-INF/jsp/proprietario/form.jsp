@@ -76,7 +76,7 @@ $(document).ready(function(){
 				<label for="fone1">Telefone Residencial *</label>
 				<input id="fone1" class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 11 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone1" onkeypress="mascara(this,ftelefone1)" maxlength="15" value="${proprietario.fone1}" />
+					name="proprietario.fone1" onkeypress="mascara(this,ftelefone1)" maxlength="14" value="${proprietario.fone1}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
