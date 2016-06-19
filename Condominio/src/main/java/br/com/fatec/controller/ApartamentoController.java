@@ -70,10 +70,22 @@ public class ApartamentoController {
 	@Post
 	public void adiciona(Apartamento apartamento) {
 		apartamento.setProprietario(proprietarioDao.busca(apartamento.getIdProp()));
-
 		validator.onErrorForwardTo(this).form();
-		apartamentoDao.adiciona(apartamento);
-		result.redirectTo(this).lista();
+		List<Apartamento> apartamentos = apartamentoDao.lista();
+		boolean existe = false;
+		for(Apartamento a: apartamentos){
+			if(a.getNumeroApt() == apartamento.getNumeroApt()){
+				existe = true;
+			}
+		}
+		if(existe == true){
+			result.include("message","Não é possivel inserir o apartamento porque ele já existe");
+			result.redirectTo(this).form();
+		} else {
+			apartamentoDao.adiciona(apartamento);
+			result.include("message","Apartamento cadastrado com sucesso");
+			result.redirectTo(this).lista();
+		}				
 	}
 
 	@Get("apartamento/{id}")

@@ -40,9 +40,7 @@ public class DespesasDao {
 	}
 	
 	public void deleta(long id) {
-		manager.getTransaction().begin();
 		manager.remove(manager.getReference(Despesas.class, id));
-		manager.getTransaction().commit();
 	}
 
 	

@@ -45,6 +45,7 @@ function valida_form() {
 	<input id="id" class="form-control" type="number" name="apartamento.id"
 		value="${apartamento.id}" style="display: none" />
 
+	<font color = "red"> ${message}</font>
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
