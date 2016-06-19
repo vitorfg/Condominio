@@ -41,7 +41,7 @@ div.conteudo {
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
 <!-- Mascara de entrada --> 
