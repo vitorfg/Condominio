@@ -3,7 +3,8 @@
 
 <h1>Despesas</h1>
 
-<table class="table table-hover">
+<div class="w3-responsive">
+	<table class="w3-table w3-striped w3-bordered w3-border">
 	<thead>
 		<tr>
 			<th>Id</th>
@@ -24,15 +25,17 @@
 				<td>${d.valorDespesa}</td>
 				<td>${d.dataReferencia}</td>
 
-				<td><a href="${linkTo[DespesasController].altera(d.id)}"> <span
-						class="glyphicon glyphicon-pencil"></span>
+				<td><a href="${linkTo[DespesasController].altera(d.id)}"> 
+							<button class="w3-btn btn-link"  name="_method">
+							<span class="fa fa-file-text"></span>
+							</button>
 				</a></td>
 				<td>
 					<form action="${linkTo[DespesasController].deleta(d.id)}"
 						method="POST">
-						<button class="btn btn-link" type="submit" name="_method"
+						<button class="w3-btn btn-link" type="submit" name="_method"
 							value="DELETE">
-							<span class="glyphicon glyphicon-trash"></span>
+							<span class="fa fa-trash"></span>
 						</button>
 					</form>
 				</td>
@@ -40,5 +43,6 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

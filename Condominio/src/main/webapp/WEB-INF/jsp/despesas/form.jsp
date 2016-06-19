@@ -32,7 +32,7 @@ $(document).ready(function(){
 				<label for="valorDespesa">Valor da Despesa *</label>
 				<input	id="valorDespesa" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 140.00" data-toggle="tooltip" title="Valor da despesa"
-				type="number" name="despesas.valorDespesa" value="${despesas.valorDespesa}" />
+				type="number" name="despesas.valorDespesa" onkeypress="mascara(this,soNumeros)" maxlength="40" value="${despesas.valorDespesa}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
@@ -40,7 +40,7 @@ $(document).ready(function(){
 				<label for="valorCobrado">Valor Cobrado *</label>
 				<input	id="valorCobrado" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 140.00" data-toggle="tooltip" title="Valor cobrado da despesa"
-				type="number" name="despesas.valorCobrado" value="${despesas.valorCobrado}" />
+				type="number" name="despesas.valorCobrado" onkeypress="mascara(this,soNumeros)" maxlength="40" value="${despesas.valorCobrado}" />
 			</div>
 		</div>
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
 				<label for="dataReferencia">Data De Referência *</label>
 				<input id="dataReferencia" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência da despesa"
-				type="text"	name="despesas.dataReferencia" value="<fmt:formatDate pattern="dd/MM"
+				type="text"	name="despesas.dataReferencia" onkeypress="mascara(this,freferencia)" maxlength="14" value="<fmt:formatDate pattern="dd/MM"
 				value="${despesas.dataReferencia}"/>">
 			</div>
 		<div class="w3-row-padding">

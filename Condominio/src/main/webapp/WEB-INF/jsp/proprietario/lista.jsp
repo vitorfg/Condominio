@@ -25,14 +25,16 @@
 					<td>${p.fone1}</td>
 
 					<td><a href="${linkTo[ProprietarioController].altera(p.id)}">
-							<span class="glyphicon glyphicon-pencil"></span>
+							<button class="w3-btn btn-link"  name="_method">
+							<span class="fa fa-file-text"></span>
+							</button>
 					</a></td>
 					<td>
 						<form action="${linkTo[ProprietarioController].deleta(p.id)}"
 							method="POST">
-							<button class="btn btn-link" type="submit" name="_method"
+							<button class="w3-btn btn-link" type="submit" name="_method"
 								value="DELETE">
-								<span class="glyphicon glyphicon-trash"></span>
+								<span class="fa fa-trash"></span>
 							</button>
 						</form>
 					</td>
