@@ -75,7 +75,7 @@ public class CondominioController {
 		populaCombo();
 		Condominio condominio = condominioDao.busca(id);
 		result.include("condominio", condominio);
-		result.of(this).lista();
+		result.of(this).form();
 	}
 
 	@Delete("/condominio/{id}")

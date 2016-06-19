@@ -71,7 +71,7 @@ public class DespesasController {
 
 		Despesas despesa = despesasDao.busca(id);
 		result.include("despesa", despesa);
-		result.of(this).lista();
+		result.of(this).form();
 	}
 
 	@Delete("/despesa/{id}")
