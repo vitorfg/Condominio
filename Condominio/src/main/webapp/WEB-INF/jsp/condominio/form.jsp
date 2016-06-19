@@ -45,7 +45,7 @@
 				}
 			}
 
-			atual = dia + "/" + mes + "/" + data.getFullYear();
+			atual = dia + "/" + (++mes) + "/" + data.getFullYear();
 
 			frmCond.dataEmissao.value = atual;
 		}
