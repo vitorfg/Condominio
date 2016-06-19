@@ -17,12 +17,12 @@
 	</thead>
 	<font color = "red"> ${message}</font>
 	<tbody>
-		<c:forEach items="${condominio}" var="c">
+		<c:forEach items="${condominios}" var="c">
 			<c:set var="id" value="${c.id}" scope="request"></c:set>
 			<tr>
 				<td>${c.id}</td>
-				<td>${c.apartamento}</td>
-				<td>${c.dataReferencia}</td>
+				<td>${c.apartamento.numeroApt}</td>
+				<td>${c.dataReferencia.time}</td>
 
 				<td><a href="${linkTo[CondominioController].altera(c.id)}">
 							<button class="w3-btn btn-link"  name="_method">

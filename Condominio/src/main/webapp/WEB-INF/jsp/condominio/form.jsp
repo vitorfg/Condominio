@@ -10,7 +10,7 @@
 
 	<script type="text/javascript" language="javascript">
 		function valida_form() {
-			if (document.getElementById("dataReferencia").value.length < 5) {
+			if (document.getElementById("dataReferencia").value.length < 10) {
 				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 				document.getElementById("dataReferencia").focus();
 
@@ -26,7 +26,7 @@
 		function getDataAtual() {
 			var data = new Date()
 			var atual, dia, mes;
-			
+
 			if (data.getDate() < 10) {
 				if (data.getMonth() < 10) {
 					dia = "0" + data.getDate();
@@ -60,110 +60,105 @@
 	<form name="frmCond"
 		action="${linkTo[CondominioController].adiciona(null)}" method="post"
 		onsubmit="return valida_form(this)">
-		<div class="row"></div>
-		<div class="row">
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="dataReferencia">Data de Referência *</label> <input
-						id="dataReferencia"
-						class="form-control w3-input w3-border w3-round-large" type="text"
-						name="condominio.dataReferencia" placeholder="e.x 10/2006"
-						data-toggle="tooltip" title="Data de referência do condominio"
-						pattern="MM/yyyy" onkeypress="mascara(this,freferencia)"
-						maxlength="7"
-						value="<fmt:formatDate pattern="MM/yyyy" value="${condominio.dataReferencia}"/>">
-				</div>
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="dataReferencia">Data de Referência *</label> <input
+					id="dataReferencia"
+					class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataReferencia" placeholder="e.x 10/06/2006"
+					data-toggle="tooltip" title="Data de referência do condominio"
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
+					maxlength="10"
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia}"/>">
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="dataEmissao">Data de Emissão *</label> <input
-						id="dataEmissao"
-						class="form-control w3-input w3-border w3-round-large" type="text"
-						name="condominio.dataEmissao" placeholder="e.x 10/06/2006"
-						data-toggle="tooltip" title="Data de emissão do condominio"
-						
-						maxlength="10"
-						value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao}"/>">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="dataEmissao">Data de Emissão *</label> <input
+					id="dataEmissao"
+					class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataEmissao" placeholder="e.x 10/06/2006"
+					data-toggle="tooltip" title="Data de emissão do condominio"
+					maxlength="10"
+					value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao}"/>">
 
-				</div>
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="dataVencimento">Data de Vencimento *</label> <input
-						id="dataVencimento" placeholder="e.x 10/06/2016"
-						class="form-control w3-input w3-border w3-round-large" type="text"
-						name="condominio.dataVencimento" data-toggle="tooltip"
-						title="Data de vencimento do condominio" pattern="dd/MM/yyyy"
-						onkeypress="mascara(this,fdata)" maxlength="10"
-						value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="dataVencimento">Data de Vencimento *</label> <input
+					id="dataVencimento" placeholder="e.x 10/06/2016"
+					class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataVencimento" data-toggle="tooltip"
+					title="Data de vencimento do condominio" pattern="dd/MM/yyyy"
+					onkeypress="mascara(this,fdata)" maxlength="10"
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
 
-				</div>
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="dataPagamento">Data de Pagamento *</label> <input
-						id="dataPagamento"
-						class="form-control w3-input w3-border w3-round-large" type="text"
-						name="condominio.dataPagamento" placeholder="e.x 10/06/2016"
-						data-toggle="tooltip" title="Data de pagamento do condominio"
-						pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
-						maxlength="10"
-						value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="dataPagamento">Data de Pagamento *</label> <input
+					id="dataPagamento"
+					class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataPagamento" placeholder="e.x 10/06/2016"
+					data-toggle="tooltip" title="Data de pagamento do condominio"
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
+					maxlength="10"
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
 
-				</div>
 			</div>
-
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="numParcelas">Número de Parcelas</label> <input
-						id="numParcelas"
-						class="form-control w3-input w3-border w3-round-large"
-						type="number" name="condominio.numParcelas" placeholder="e.x 12"
-						data-toggle="tooltip" title="Número de parcelas do condominio"
-						onkeypress="mascara(this,soNumeros)" maxlength="3"
-						value="${condominio.numParcelas}" />
-				</div>
+		</div>
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="numParcelas">Número de Parcelas</label> <input
+					id="numParcelas"
+					class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.numParcelas" placeholder="e.x 12"
+					data-toggle="tooltip" title="Número de parcelas do condominio"
+					onkeypress="mascara(this,soNumeros)" maxlength="3"
+					value="${condominio.numParcelas}" />
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="parcelasPagas">Parcelas Pagas</label> <input
-						id="parcelasPagas"
-						class="form-control w3-input w3-border w3-round-large"
-						type="number" name="condominio.parcelasPagas" placeholder="e.x 12"
-						data-toggle="tooltip" title="Parcelas pagas do condominio"
-						onkeypress="mascara(this,soNumeros)" maxlength="3"
-						value="${condominio.parcelasPagas}" />
-				</div>
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="parcelasPagas">Parcelas Pagas</label> <input
+					id="parcelasPagas"
+					class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.parcelasPagas" placeholder="e.x 12"
+					data-toggle="tooltip" title="Parcelas pagas do condominio"
+					onkeypress="mascara(this,soNumeros)" maxlength="3"
+					value="${condominio.parcelasPagas}" />
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="apartamento">Apartamento *</label> <select
-						class="form-control w3-input w3-border w3-round-large"
-						id="apartamento" name="condominio.idApt" data-toggle="tooltip"
-						title="Apartamento do condominio" style="height: 39px;">
-						<c:forEach var="a" items="${apartamentos}">
-							<option value="${a.id}">${a.numeroApt}</option>
-						</c:forEach>
-					</select>
-				</div>
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="apartamento">Apartamento *</label> <select
+					class="form-control w3-input w3-border w3-round-large"
+					id="apartamento" name="condominio.idApt" data-toggle="tooltip"
+					title="Apartamento do condominio" style="height: 39px;">
+					<c:forEach var="a" items="${apartamentos}">
+						<option value="${a.id}">${a.numeroApt}</option>
+					</c:forEach>
+				</select>
 			</div>
+		</div>
 
-			<div class="w3-row-padding">
-				<div class="w3-third conteudo">
-					<label for="porcentagemJuros">Porcentagem de Juros *</label> <input
-						id="porcentagemJuros"
-						class="form-control w3-input w3-border w3-round-large"
-						type="number" name="condominio.porcentagemJuros"
-						placeholder="e.x 2" data-toggle="tooltip"
-						title="porcentagem de juros do condominio"
-						onkeypress="mascara(this,soNumeros)" maxlength="3"
-						value="${condominio.porcentagemJuros}" />
-				</div>
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="porcentagemJuros">Porcentagem de Juros *</label> <input
+					id="porcentagemJuros"
+					class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.porcentagemJuros"
+					placeholder="e.x 2" data-toggle="tooltip"
+					title="porcentagem de juros do condominio"
+					onkeypress="mascara(this,soNumeros)" maxlength="3"
+					value="${condominio.porcentagemJuros}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">

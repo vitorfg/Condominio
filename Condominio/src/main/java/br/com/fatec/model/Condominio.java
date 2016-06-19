@@ -32,11 +32,9 @@ public class Condominio {
 	@Temporal(TemporalType.DATE)
 	private Calendar dataEmissao;
 
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataVencimento;
 
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPagamento;
 
@@ -49,16 +47,10 @@ public class Condominio {
 
 	private long idApt;
 
-	@NotEmpty
-	private boolean late;
-
-	@NotEmpty
 	private boolean pagouAtual;
 
-	@NotEmpty
 	private double porcentagemJuros;
 
-	@NotEmpty
 	private double totalPagar;
 
 	public long getId() {
@@ -69,28 +61,8 @@ public class Condominio {
 		this.id = id;
 	}
 
-	private Calendar strToCal(String strDate, String format) throws ParseException {
-		Date date = (Date) new SimpleDateFormat(format).parse(strDate);
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(date);
-
-		return cal;
-	}
-
 	public Calendar getDataReferencia() {
-		Calendar dataReferencia = new GregorianCalendar();
-		dataReferencia.setTime(new Date());
-		dataReferencia.add(Calendar.MONTH, -1);
-
 		return dataReferencia;
-	}
-
-	public void setDataReferencia(String strDataReferencia) {
-		try {
-			dataReferencia = strToCal(strDataReferencia, "dd/MM/yyyy");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void setDataReferencia(Calendar dataReferencia) {
@@ -98,27 +70,19 @@ public class Condominio {
 	}
 
 	public Calendar getDataEmissao() {
-		return new GregorianCalendar();
+		return dataEmissao;
 	}
 
-	public void setDataEmissao(String strDataEmissao) {
-		try {
-			dataEmissao = strToCal(strDataEmissao, "MM/yyyy");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	public void setDataEmissao(Calendar dataEmissao) {
+		this.dataEmissao = dataEmissao;
 	}
 
 	public Calendar getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public void setDataVencimento(String strDataVencimento) {
-		try {
-			dataVencimento = strToCal(strDataVencimento, "dd/MM/yyyy");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	public void setDataVencimento(Calendar dataVencimento) {
+		this.dataVencimento = dataVencimento;
 	}
 
 	public Calendar getDataPagamento() {
@@ -153,12 +117,12 @@ public class Condominio {
 		this.apartamento = apartamento;
 	}
 
-	public boolean isLate() {
-		return late;
+	public long getIdApt() {
+		return idApt;
 	}
 
-	public void setLate(boolean late) {
-		this.late = late;
+	public void setIdApt(long idApt) {
+		this.idApt = idApt;
 	}
 
 	public boolean isPagouAtual() {
@@ -184,13 +148,4 @@ public class Condominio {
 	public void setTotalPagar(double totalPagar) {
 		this.totalPagar = totalPagar;
 	}
-
-	public long getIdApt() {
-		return idApt;
-	}
-
-	public void setIdApt(long idApt) {
-		this.idApt = idApt;
-	}
-
 }

@@ -54,11 +54,11 @@ $(document).ready(function(){
 			</div>
 		<div class="w3-row-padding">
 				<div class="w3-third conteudo">
-				<label for="condominio">Condominio *</label>
+				<label for="condominio">Apartamento *</label>
 				<select	class="w3-input w3-border w3-round-large" id="condominio" data-toggle="tooltip" title="Condominio da despesa"
 					name="despesas.idCond" style=" height : 36px;">
-					<c:forEach var="d" items="${condominio}">
-						<option value="${d.id}">${d.descricao}</option>
+					<c:forEach var="c" items="${condominios}">
+						<option value="${c.id}">${c.apartamento.numeroApt}</option>
 					</c:forEach>
 				</select>
 			</div>
