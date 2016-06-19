@@ -84,7 +84,7 @@ $(document).ready(function(){
 				<label for="fone2">Telefone 2</label>
 				<input id="fone2" class="form-control w3-input w3-border w3-round-large" type="text"
 					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone2" onkeypress="mascara(this,telefone)" maxlength="15" value="${proprietario.fone2}" />
+					name="proprietario.fone2" onkeypress="mascara(this,ftelefone)" maxlength="15" value="${proprietario.fone2}" />
 			</div>
 		</div>
 	</div>
