@@ -74,7 +74,7 @@ div.conteudo {
 	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
 	                                             //de novo (para o segundo bloco de números)
 	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-	    return v
+	    return variavel
 	}
 	
 	function frg(variavel){
@@ -83,12 +83,12 @@ div.conteudo {
 	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
 	                                             //de novo (para o segundo bloco de números)
 	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-	    return v
+	    return variavel
 	}
-	function fcep(v){
-	    v=v.replace(/D/g,"")                //Remove tudo o que não é dígito
-	    v=v.replace(/^(\d{5})(\d)/,"$1-$2") //Esse é tão fácil que não merece explicações
-	    return v
+	function fcep(variavel){
+	    variavel=variavel.replace(/D/g,"")                //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/^(\d{5})(\d)/,"$1-$2") //Esse é tão fácil que não merece explicações
+	    return variavel
 	}
 	function freferencia(variavel){
 	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
