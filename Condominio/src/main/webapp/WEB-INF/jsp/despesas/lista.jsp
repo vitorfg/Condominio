@@ -24,7 +24,7 @@
 				<td>${d.id}</td>
 				<td>${d.descricao}</td>
 				<td>${d.valorDespesa}</td>
-				<td>${d.dataReferencia}</td>
+				<td>${d.dataReferencia.time}</td>
 
 				<td><a href="${linkTo[DespesasController].altera(d.id)}"> 
 							<button class="w3-btn btn-link"  name="_method">
