@@ -84,19 +84,26 @@ public class CondominioController {
 		boolean existe = false;
 		List<Despesas> despesas = despesasDao.lista();
 		Condominio cond = condominioDao.busca(id);
-		for(Despesas d: despesas){
-			if(d.getCondominio().equals(cond)){
-				existe = true;
+		try{
+			for(Despesas d: despesas){
+				if(d.getCondominio().equals(cond)){
+					existe = true;
+				}
 			}
-		}
-		if(existe == true){
-			result.include("message", "Erro ao excluir Condominio! Condominio possui Despesas");
-			result.redirectTo(this).lista();
-		} else {
+			if(existe == true){
+				result.include("message", "Erro ao excluir Condominio! Condominio possui Despesas");
+				result.redirectTo(this).lista();
+			} else {
+				condominioDao.deleta(id);
+				result.include("message", "Exclusão realizada com sucesso");
+				result.redirectTo(this).lista();	
+			}
+		} catch(NullPointerException e){
 			condominioDao.deleta(id);
 			result.include("message", "Exclusão realizada com sucesso");
-			result.redirectTo(this).lista();	
+			result.redirectTo(this).lista();
 		}
+		
 	}
 
 	/* MÉTODOS ESPECÍFICOS */

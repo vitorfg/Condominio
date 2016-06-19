@@ -26,7 +26,8 @@ public class ProprietarioController {
 	private ApartamentoDao apartamentoDao;
 
 	@Inject
-	ProprietarioController(ProprietarioDao proprietarioDao, Result result, Validator validator,ApartamentoDao apartamentoDao) {
+	ProprietarioController(ProprietarioDao proprietarioDao, Result result, Validator validator,
+			ApartamentoDao apartamentoDao) {
 		this.proprietarioDao = proprietarioDao;
 		this.result = result;
 		this.validator = validator;
@@ -67,19 +68,25 @@ public class ProprietarioController {
 		boolean existe = false;
 		List<Apartamento> apartamentos = apartamentoDao.lista();
 		Proprietario prop = proprietarioDao.busca(id);
-		for(Apartamento a:apartamentos){
-			if(a.getProprietario().equals(prop)){
-				existe = true;
+		try {
+			for (Apartamento a : apartamentos) {
+				if (a.getProprietario().equals(prop)) {
+					existe = true;
+				}
 			}
-		}
-		if(existe == true){
-			result.include("message", "Erro ao excluir Proprietário! Desvincule o Proprietário do Apartamento");
-			result.redirectTo(this).lista();
-		} else {
+			if (existe == true) {
+				result.include("message", "Erro ao excluir Proprietário! Desvincule o Proprietário do Apartamento");
+				result.redirectTo(this).lista();
+			} else {
+				proprietarioDao.deleta(id);
+				result.include("message", "Exclusão realizada com sucesso");
+				result.redirectTo(this).lista();
+			}
+		} catch (NullPointerException e) {
 			proprietarioDao.deleta(id);
 			result.include("message", "Exclusão realizada com sucesso");
-			result.redirectTo(this).lista();	
+			result.redirectTo(this).lista();
 		}
 	}
-	
+
 }

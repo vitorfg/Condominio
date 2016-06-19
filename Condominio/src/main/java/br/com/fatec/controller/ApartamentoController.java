@@ -102,19 +102,26 @@ public class ApartamentoController {
 		boolean existe = false;
 		List<Condominio> condominios = condominioDao.lista();
 		Apartamento apt = apartamentoDao.busca(id);
-		for(Condominio c:condominios){
-			if(c.getApartamento().equals(apt)){
-				existe = true;
+		try{
+			for(Condominio c:condominios){
+				if(c.getApartamento().equals(apt)){
+					existe = true;
+				}
 			}
-		}
-		if(existe == true){
-			result.include("message", "Erro ao excluir Apartamento! Desvincule o Apartamento do Condominio");
-			result.redirectTo(this).lista();
-		} else {
+			if(existe == true){
+				result.include("message", "Erro ao excluir Apartamento! Desvincule o Apartamento do Condominio");
+				result.redirectTo(this).lista();
+			} else {
+				apartamentoDao.deleta(id);
+				result.include("message", "Exclusão realizada com sucesso");
+				result.redirectTo(this).lista();	
+			}
+		} catch(NullPointerException e ){
 			apartamentoDao.deleta(id);
 			result.include("message", "Exclusão realizada com sucesso");
 			result.redirectTo(this).lista();	
 		}
+		
 	}
 
 }
