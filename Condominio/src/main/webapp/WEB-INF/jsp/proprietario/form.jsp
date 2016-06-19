@@ -65,7 +65,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="cpf">CPF *</label>
 				<input id="cpf"	class="form-control w3-input w3-border w3-round-large" type="text"
-					placeholder="e.x 05814526581" data-toggle="tooltip" title="CPF do proprietário"
+					placeholder="e.x 0581452658" data-toggle="tooltip" title="CPF do proprietário"
 					name="proprietario.cpf" onkeypress="mascara(this,fcpf)" maxlength="14" value="${proprietario.cpf}" />
 			</div>
 		</div>
@@ -73,18 +73,18 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="fone1">Telefone 1 *</label>
+				<label for="fone1">Telefone Residencial *</label>
 				<input id="fone1" class="form-control w3-input w3-border w3-round-large" type="text"
-					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone1" onkeypress="mascara(this,ftelefone)" maxlength="15" value="${proprietario.fone1}" />
+					placeholder="e.x 11 20173114" data-toggle="tooltip" title="Telefone do proprietário"
+					name="proprietario.fone1" onkeypress="mascara(this,ftelefone1)" maxlength="15" value="${proprietario.fone1}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="fone2">Telefone 2</label>
+				<label for="fone2">Celular</label>
 				<input id="fone2" class="form-control w3-input w3-border w3-round-large" type="text"
-					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
-					name="proprietario.fone2" onkeypress="mascara(this,ftelefone)" maxlength="15" value="${proprietario.fone2}" />
+					placeholder="e.x 11 970124424" data-toggle="tooltip" title="Telefone do proprietário"
+					name="proprietario.fone2" onkeypress="mascara(this,ftelefone2)" maxlength="15" value="${proprietario.fone2}" />
 			</div>
 		</div>
 	</div>

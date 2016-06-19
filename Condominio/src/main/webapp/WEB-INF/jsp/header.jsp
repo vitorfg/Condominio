@@ -60,10 +60,19 @@ div.conteudo {
 	    return variavel.replace(/\D/g,"")
 	}
 
-	function ftelefone(variavel){
+	function ftelefone1(variavel){
 	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
 	    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
 	    variavel=variavel.replace(/(\d{4})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+	    // o quarto e quinto numero somente.
+	}
+
+
+	function ftelefone2(variavel){
+	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+	    variavel=variavel.replace(/(\d{5})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
 	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
 	    // o quarto e quinto numero somente.
 	}
@@ -101,7 +110,7 @@ div.conteudo {
 	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
 	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")
 	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")   //Coloca barra em volta dos dois primeiros dígitos
-	    variavel=variavel.replace(/(\d{4})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
+	    variavel=variavel.replace(/(\d{2})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
 	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
 	    // o quarto e quinto numero somente.
 	}
@@ -158,7 +167,7 @@ div.conteudo {
 					.replace(" w3-black", "");
 		}
 	}
-	//<!--Menu Sidenav -->
+	
 	function w3_open() {
 		document.getElementById("main").style.marginLeft = "25%";
 		document.getElementsByClassName("w3-sidenav")[0].style.width = "25%";

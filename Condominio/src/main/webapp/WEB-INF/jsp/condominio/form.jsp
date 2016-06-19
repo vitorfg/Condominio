@@ -8,12 +8,12 @@
 
 <script type="text/javascript" language="javascript">
 	function valida_form() {
-		if (document.getElementById("dataReferencia").value.length < 7) {
+		if (document.getElementById("dataReferencia").value.length < 5) {
 			alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 			document.getElementById("dataReferencia").focus();
 
 			return false
-		} else if (document.getElementById("dataEmissao").value.length < 7) {
+		} else if (document.getElementById("dataEmissao").value.length < 10) {
 			alert('Por favor, preencha o campo de Data de emissão conforme o exemplo');
 			document.getElementById("dataEmissao").focus();
 
@@ -62,7 +62,8 @@ $(document).ready(function(){
 				<label for="dataReferencia">Data de Referência *</label>
 				<input	id="dataReferencia"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataReferencia" placeholder="e.x 10/2006" data-toggle="tooltip" title="Data de referência do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" value="${condominio.dataReferencia}"/>
+					pattern="MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" 
+					value="<fmt:formatDate pattern="MM/yyyy" value="${condominio.dataReferencia}"/>">
 			</div>
 		</div>
 
@@ -70,8 +71,9 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="dataEmissao">Data de Emissão *</label>
 				<input	id="dataEmissao" class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataEmissao" placeholder="e.x 10/2006" data-toggle="tooltip" title="Data de emissão do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7"  value="${condominio.dataEmissao}"/>
+					name="condominio.dataEmissao" placeholder="e.x 10/06/2006" data-toggle="tooltip" title="Data de emissão do condominio"
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" 
+					value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao}"/>">
 
 			</div>
 		</div>
@@ -81,7 +83,8 @@ $(document).ready(function(){
 				<label for="dataVencimento">Data de Vencimento *</label> 
 				<input id="dataVencimento" placeholder="e.x 10/06/2016" class="form-control w3-input w3-border w3-round-large"
 					type="text"	name="condominio.dataVencimento" data-toggle="tooltip" title="Data de vencimento do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" value="${condominio.dataVencimento}"/>
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" 
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
 
 			</div>
 		</div>
@@ -91,7 +94,8 @@ $(document).ready(function(){
 				<label for="dataPagamento">Data de Pagamento *</label>
 				<input	id="dataPagamento"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataPagamento" placeholder="e.x 10/06/2016" data-toggle="tooltip" title="Data de pagamento do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  value="${condominio.dataPagamento}"/>
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
 
 			</div>
 		</div>
