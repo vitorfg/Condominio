@@ -44,7 +44,7 @@ div.conteudo {
 <script type="text/javascript" src="jquery.mask.min.js"></script>
 
 <script type="text/javascript">
-
+<!-- Mascara de entrada --> 
 $(document).ready(function(){
 	$('#dataReferencia').mask('00/00/0000'); //Data de Referencia
 	$('#txtCep').mask('00000-000'); //CEP
@@ -55,7 +55,7 @@ $(document).ready(function(){
 });
 
 
-	
+	<!-- Menu Sidenav/função de sub menu -->
 	function myAccProp() {
 		var x = document.getElementById("AccProp");
 
@@ -107,7 +107,7 @@ $(document).ready(function(){
 					.replace(" w3-black", "");
 		}
 	}
-
+	<!--Menu Sidenav -->
 	function w3_open() {
 		document.getElementById("main").style.marginLeft = "25%";
 		document.getElementsByClassName("w3-sidenav")[0].style.width = "25%";
