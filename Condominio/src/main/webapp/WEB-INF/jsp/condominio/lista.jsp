@@ -3,7 +3,8 @@
 
 <h1>Condominio</h1>
 
-<table class="table table-hover">
+<div class="w3-responsive">
+	<table class="w3-table w3-striped w3-bordered w3-border">
 	<thead>
 		<tr>
 			<th>Id</th>
@@ -23,14 +24,16 @@
 				<td>${c.dataReferencia}</td>
 
 				<td><a href="${linkTo[CondominioController].altera(c.id)}">
-						<span class="glyphicon glyphicon-pencil"></span>
+							<button class="w3-btn btn-link"  name="_method">
+							<span class="fa fa-file-text"></span>
+							</button>
 				</a></td>
 				<td>
 					<form action="${linkTo[CondominioController].deleta(c.id)}"
 						method="POST">
-						<button class="btn btn-link" type="submit" name="_method"
+						<button class="w3-btn btn-link" type="submit" name="_method"
 							value="DELETE">
-							<span class="glyphicon glyphicon-trash"></span>
+							<span class="fa fa-trash"></span>
 						</button>
 					</form>
 				</td>

@@ -49,7 +49,7 @@ $(document).ready(function(){
 				<label for="dataReferencia">Data De Referência *</label>
 				<input id="dataReferencia" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência da despesa"
-				type="text"	name="despesas.dataReferencia" onkeypress="mascara(this,freferencia)" maxlength="14" value="<fmt:formatDate pattern="dd/MM"
+				type="text"	name="despesas.dataReferencia" onkeypress="mascara(this,freferencia)" maxlength="7" value="<fmt:formatDate pattern="dd/MM"
 				value="${despesas.dataReferencia}"/>">
 			</div>
 		<div class="w3-row-padding">

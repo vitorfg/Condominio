@@ -62,7 +62,7 @@ $(document).ready(function(){
 				<label for="dataReferencia">Data de Referência *</label>
 				<input	id="dataReferencia"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataReferencia" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" value="${condominio.dataReferencia}"/>">
 			</div>
 		</div>
 
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				<label for="dataEmissao">Data de Emissão *</label>
 				<input	id="dataEmissao" class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataEmissao" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de emissão do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataEmissao}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7"  value="${condominio.dataEmissao}"/>">
 
 			</div>
 		</div>
@@ -81,7 +81,7 @@ $(document).ready(function(){
 				<label for="dataVencimento">Data de Vencimento *</label> 
 				<input id="dataVencimento" placeholder="e.x 10/06" class="form-control w3-input w3-border w3-round-large"
 					type="text"	name="condominio.dataVencimento" data-toggle="tooltip" title="Data de vencimento do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" value="${condominio.dataVencimento}"/>">
 
 			</div>
 		</div>
@@ -91,7 +91,7 @@ $(document).ready(function(){
 				<label for="dataPagamento">Data de Pagamento *</label>
 				<input	id="dataPagamento"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataPagamento" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de pagamento do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  value="${condominio.dataPagamento}"/>">
 
 			</div>
 		</div>
@@ -101,7 +101,7 @@ $(document).ready(function(){
 				<label for="numParcelas">Número de Parcelas</label>
 				<input	id="numParcelas" class="form-control w3-input w3-border w3-round-large"
 					type="number" name="condominio.numParcelas" placeholder="e.x 12" data-toggle="tooltip" title="Número de parcelas do condominio"
-					value="${condominio.numParcelas}" />
+					onkeypress="mascara(this,soNumeros)" maxlength="3"  value="${condominio.numParcelas}" />
 			</div>
 		</div>
 
@@ -110,7 +110,7 @@ $(document).ready(function(){
 				<label for="parcelasPagas">Parcelas Pagas</label>
 				<input	id="parcelasPagas"	class="form-control w3-input w3-border w3-round-large"
 					type="number" name="condominio.parcelasPagas" placeholder="e.x 12" data-toggle="tooltip" title="Parcelas pagas do condominio"
-					value="${condominio.parcelasPagas}" />
+					onkeypress="mascara(this,soNumeros)" maxlength="3"  value="${condominio.parcelasPagas}" />
 			</div>
 		</div>
 
@@ -118,7 +118,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="apartamento">Apartamento *</label>
 				<select	class="form-control w3-input w3-border w3-round-large"
-					id="apartamento" name="condominio.idApt" data-toggle="tooltip" title="Apartamento do condominio">
+					id="apartamento" name="condominio.idApt" data-toggle="tooltip" title="Apartamento do condominio" style=" height : 39px;">
 					<c:forEach var="a" items="${apartamentos}">
 						<option value="${a.id}">${a.numeroApt}</option>
 					</c:forEach>
@@ -131,7 +131,7 @@ $(document).ready(function(){
 				<label for="porcentagemJuros">Porcentagem de Juros *</label>
 				<input	id="porcentagemJuros"	class="form-control w3-input w3-border w3-round-large"
 					type="number" name="condominio.porcentagemJuros" placeholder="e.x 2" data-toggle="tooltip" title="porcentagem de juros do condominio"
-					value="${condominio.porcentagemJuros}" />
+					onkeypress="mascara(this,soNumeros)" maxlength="3" value="${condominio.porcentagemJuros}" />
 			</div>
 		</div>
 	</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){
 			<label for="totalPagar">Total a Pagar *</label>
 			<input id="totalPagar" 	class="form-control w3-input w3-border w3-round-large" type="number"
 				placeholder="e.x 120.00" data-toggle="tooltip" title="Total a pagar do condominio"
-				name="condominio.totalPagar" value="${condominio.totalPagar}" />
+				name="condominio.totalPagar" onkeypress="mascara(this,soNumeros)" maxlength="40"  value="${condominio.totalPagar}" />
 		</div>
 	</div>
 	<div class="w3-row-padding">
