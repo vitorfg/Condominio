@@ -23,18 +23,18 @@ public class Despesas {
 	@NotNull
 	private String descricao;
 
-	@NotEmpty
-	private double valorDespesa;
+	@NotNull
+	private Double valorDespesa;
 
-	@NotEmpty
-	private double valorCobrado;
+	@NotNull
+	private Double valorCobrado;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataReferencia;
 
-	@NotEmpty
-	private boolean isEspecifico;
+	@NotNull
+	private Boolean isEspecifico;
 
 	@ManyToOne
 	private Condominio condominio;
