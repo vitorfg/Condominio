@@ -45,17 +45,68 @@ div.conteudo {
 
 <script type="text/javascript">
 <!-- Mascara de entrada --> 
-$(document).ready(function(){
-	$('#dataReferencia').mask('00/00/0000'); //Data de Referencia
-	$('#txtCep').mask('00000-000'); //CEP
-	$('#valorDespesa').mask('000.000.000.000.000,00', {reverse: true}); //Dinheiro
-	$('#valorCobrado').mask('000.000.000.000.000,00', {reverse: true});
-	
-	
-});
 
+	function mascara(objeto,funcao){
+	    varObjeto = objeto
+	    varFuncao = funcao
+	    setTimeout("funMascara()",1)
+	}
 
-	<!-- Menu Sidenav/função de sub menu -->
+	function funMascara(){
+	    varObjeto.value = varFuncao(varObjeto.value)
+	}
+
+	function soNumeros(variavel){
+	    return variavel.replace(/\D/g,"")
+	}
+
+	function ftelefone(variavel){
+	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca parênteses em volta dos dois primeiros dígitos
+	    variavel=variavel.replace(/(\d{4})(\d)/,"$1-$2")    //Coloca hífen entre o quarto e o quinto dígitos
+	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+	    // o quarto e quinto numero somente.
+	}
+	
+	function fcpf(variavel){
+	    variavel=variavel.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+	                                             //de novo (para o segundo bloco de números)
+	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+	    return v
+	}
+	
+	function frg(variavel){
+	    variavel=variavel.replace(/\D/g,"")                    //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/(\d{2})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+	    variavel=variavel.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
+	                                             //de novo (para o segundo bloco de números)
+	    variavel=variavel.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
+	    return v
+	}
+	function fcep(v){
+	    v=v.replace(/D/g,"")                //Remove tudo o que não é dígito
+	    v=v.replace(/^(\d{5})(\d)/,"$1-$2") //Esse é tão fácil que não merece explicações
+	    return v
+	}
+	function freferencia(variavel){
+	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2") //Coloca barra em volta dos dois primeiros dígitos
+	    variavel=variavel.replace(/(\d{4})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
+	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+	    // o quarto e quinto numero somente.
+	}
+	function fdata(variavel){
+	    variavel=variavel.replace(/\D/g,"")                 //Remove tudo o que não é dígito
+	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")
+	    variavel=variavel.replace(/^(\d\d)(\d)/g,"$1/$2")   //Coloca barra em volta dos dois primeiros dígitos
+	    variavel=variavel.replace(/(\d{4})(\d)/,"$1/$2")    //Coloca hífen entre o quarto e o quinto dígitos
+	    return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
+	    // o quarto e quinto numero somente.
+	}
+	
+	//<!-- Menu Sidenav/função de sub menu -->
 	function myAccProp() {
 		var x = document.getElementById("AccProp");
 
@@ -107,7 +158,7 @@ $(document).ready(function(){
 					.replace(" w3-black", "");
 		}
 	}
-	<!--Menu Sidenav -->
+	//<!--Menu Sidenav -->
 	function w3_open() {
 		document.getElementById("main").style.marginLeft = "25%";
 		document.getElementsByClassName("w3-sidenav")[0].style.width = "25%";
