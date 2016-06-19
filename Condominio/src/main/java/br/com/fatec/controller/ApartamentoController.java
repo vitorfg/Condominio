@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.jboss.weld.context.http.HttpRequestContext;
+
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
@@ -37,10 +39,22 @@ public class ApartamentoController {
 
 	}
 
-	/* MÉTODOS VRAPTOR */
-	public void form() {
+	private void populaCombo(long id) {
+		List<Proprietario> proprietarios = proprietarioDao.lista();
+		for (Proprietario p : proprietarios) {
+			result.include("idSelected", id);
+		}
+		result.include("proprietarios", proprietarios);
+	}
+	
+	private void populaCombo() {
 		List<Proprietario> proprietarios = proprietarioDao.lista();
 		result.include("proprietarios", proprietarios);
+	}
+
+	/* MÉTODOS VRAPTOR */
+	public void form() {
+		populaCombo();
 	}
 
 	public void lista() {
@@ -50,9 +64,9 @@ public class ApartamentoController {
 
 	@IncludeParameters
 	@Post
-	public void adiciona(Apartamento apartamento) {		
+	public void adiciona(Apartamento apartamento) {
 		apartamento.setProprietario(proprietarioDao.busca(apartamento.getIdProp()));
-		
+
 		validator.onErrorForwardTo(this).form();
 		apartamentoDao.adiciona(apartamento);
 		result.redirectTo(this).lista();
@@ -60,6 +74,8 @@ public class ApartamentoController {
 
 	@Get("apartamento/{id}")
 	public void altera(long id) {
+		populaCombo(id);
+
 		Apartamento apartamento = apartamentoDao.busca(id);
 		result.include("apartamento", apartamento);
 		result.of(this).form();

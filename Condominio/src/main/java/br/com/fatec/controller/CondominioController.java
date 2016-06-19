@@ -43,10 +43,14 @@ public class CondominioController {
 
 	}
 
-	/* MÉTODOS VRAPTOR */
-	public void form() {
+	private void populaCombo() {
 		List<Apartamento> apartamentos = apartamentoDao.lista();
 		result.include("apartamentos", apartamentos);
+	}
+
+	/* MÉTODOS VRAPTOR */
+	public void form() {
+		populaCombo();
 	}
 
 	public void lista() {
@@ -67,6 +71,8 @@ public class CondominioController {
 
 	@Get("/condominio/{id}")
 	public void altera(long id) {
+		populaCombo();
+
 		Condominio condominio = condominioDao.busca(id);
 		result.include("condominio", condominio);
 		result.of(this).lista();

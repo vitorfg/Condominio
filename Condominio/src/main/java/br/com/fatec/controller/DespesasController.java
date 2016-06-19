@@ -39,10 +39,14 @@ public class DespesasController {
 
 	}
 
-	/* MÉTODOS VRAPTOR */
-	public void form() {
+	private void populaCombo() {
 		List<Condominio> condominios = condominioDao.lista();
 		result.include("condominios", condominios);
+	}
+
+	/* MÉTODOS VRAPTOR */
+	public void form() {
+		populaCombo();
 	}
 
 	public void lista() {
@@ -54,7 +58,7 @@ public class DespesasController {
 	@Post
 	public void adiciona(Despesas despesas) {
 		despesas.setCondominio(condominioDao.busca(despesas.getIdCond()));
-		
+
 		validator.onErrorForwardTo(this).form();
 		despesas = carregaDespesas(despesas);
 		despesasDao.adiciona(despesas);
@@ -63,6 +67,8 @@ public class DespesasController {
 
 	@Get("/despesa/{id}")
 	public void altera(long id) {
+		populaCombo();
+
 		Despesas despesa = despesasDao.busca(id);
 		result.include("despesa", despesa);
 		result.of(this).lista();
