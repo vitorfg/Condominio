@@ -13,37 +13,12 @@
 			document.getElementById("dataReferencia").focus();
 
 			return false
-		} else if (document.getElementById("dataEmissao").value.length < 10) {
-			alert('Por favor, preencha o campo de Data de emissão conforme o exemplo');
-			document.getElementById("dataEmissao").focus();
-
-			return false
-		} else if ((document.getElementById("dataVencimento").value.length < 10)) {
-			alert('Por favor, preencha o campo de vencimento conforme o exemplo');
-			document.getElementById("dataVencimento").focus();
-
-			return false
-		} else if ((document.getElementById("dataPagamento").value.length < 10)) {
-			alert('Por favor, preencha o campo de pagamento conforme o exemplo');
-			document.getElementById("datPagamento").focus();
-
-			return false
-		} else if ((document.getElementById("porcentagemJuros").value == "")) {
-			alert('Por favor, preencha o juros (Se não houver preencha com 0)');
-			document.getElementById("porcentagemJuros").focus();
-
-			return false
 		} else if ((document.getElementById("apartamento").value == "")) {
 			alert('Por favor, selecione um apartamento');
 			document.getElementById("apartamento").focus();
 
 			return false
-		} else if ((document.getElementById("totalPagar").value == "")) {
-			alert('Por favor, preencha o campo Total a pagar');
-			document.getElementById("totalPagar").focus();
-
-			return false
-		}
+		} 
 	}
 </script>
 
@@ -149,12 +124,6 @@ $(document).ready(function(){
 	</div>
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo" style="width: 371px;">
-			<label for="late" data-toggle="tooltip" title="atraso do condominio">Atraso</label>
-			<input id="late" class="w3-validate" type="checkbox" data-toggle="tooltip" title="atraso do condominio"
-				name="condominio.late" value=true />
-				
-				&nbsp;
-				
 				<label for="pagouAtual" data-toggle="tooltip" title="Pago no mês corrente do condominio">Pago no Mês Corrente</label>
 				<input id="pagouAtual" class="w3-validate" type="checkbox"
 				name="condominio.pagouAtual" value=true data-toggle="tooltip" title="Pago no mês corrente do condominio" />

@@ -91,7 +91,6 @@ public class CondominioController {
 
 	/* MÉTODOS ESPECÍFICOS */
 	private Condominio carregaCondominio(Condominio condominio) {
-		condominio.setLate(atrasou(condominio));
 		condominio.setPorcentagemJuros(defineJuros(condominio));
 		condominio.setTotalPagar(geraValorPagamentoComJuros(condominio));
 
