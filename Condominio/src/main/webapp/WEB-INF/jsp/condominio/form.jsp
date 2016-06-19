@@ -60,6 +60,10 @@
 	<form name="frmCond"
 		action="${linkTo[CondominioController].adiciona(null)}" method="post"
 		onsubmit="return valida_form(this)">
+		
+		<input id="id" class="form-control" type="number" name="condominio.id"
+		value="${condominio.id}" style="display: none" />
+		
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="dataReferencia">Data de Referência *</label> <input
