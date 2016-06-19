@@ -80,14 +80,6 @@ div.conteudo {
 		return variavel
 	}
 
-	/*function freferencia(variavel) {
-		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
-		variavel = variavel.replace(/^(\d\d)(\d)/g, "$1/$2") //Coloca barra em volta dos dois primeiros dígitos
-		variavel = variavel.replace(/(\d{4})(\d)/, "$1/$2") //Coloca hífen entre o quarto e o quinto dígitos
-		return variavel //A função seguira os passos, e se você não colocar um limite condizente, o hifen vai ficar entre
-		// o quarto e quinto numero somente.
-	}*/
-
 	function fdata(variavel) {
 		variavel = variavel.replace(/\D/g, "") //Remove tudo o que não é dígito
 		variavel = variavel.replace(/^(\d\d)(\d)/g, "$1/$2")
