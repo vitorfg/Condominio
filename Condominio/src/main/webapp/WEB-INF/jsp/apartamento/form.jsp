@@ -13,27 +13,28 @@
 		value="${apartamento.id}" style="display: none" />
 
 	<div class="row">
-		<div class="col-sm-3">
-			<div class="form-group">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
 				<label for="numeroApt">Nº Apartamento *</label> <input
-					id="numeroApt" class="form-control" type="number"
+					id="numeroApt" class="form-control w3-input w3-border w3-round-large" type="number"
 					name="apartamento.numeroApt" value="${apartamento.numeroApt}">
 			</div>
 		</div>
 
-		<div class="col-sm-3">
-			<div class="form-group">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
 				<label for="qtdQuartos">Quantidade de quartos *</label> <input
-					id="qtdQuartos" class="form-control" type="number"
+					id="qtdQuartos" class="form-control w3-input w3-border w3-round-large" type="number"
 					name="apartamento.qtdQuartos" value="${apartamento.qtdQuartos}">
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<label for="proprietario">Proprietário *</label> <select
-					class="form-control" id="proprietario" name="apartamento.idProp">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
+				<label for="proprietario">Proprietário *</label>
+				<select	class="form-control w3-input w3-border w3-round-large"
+					id="proprietario" name="apartamento.idProp">
 					<c:forEach var="p" items="${proprietarios}">
 						<option value="${p.id}">${p.nomeProprietario}</option>
 					</c:forEach>
@@ -42,10 +43,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
+		<div class="w3-row-padding">
+			<div class="w3-third conteudo">
 				<label for="tipoOcupacao">Tipo de ocupação *</label> <select
-					class="form-control" id="tipoOcupacao"
+					class="form-control w3-input w3-border w3-round-large" id="tipoOcupacao"
 					name="apartamento.tipoOcupacao">
 					<option value="Proprietário">Proprietário</option>
 					<option value="Inquilino">Inquilino</option>
@@ -55,9 +56,9 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-sm-6">
-			<button class="btn btn-primary pull-right" type="submit">Salvar</button>
+	<div class="w3-row-padding">
+		<div class="w3-third conteudo">
+			<button class="w3-btn w3-round w3-ripple" type="submit">Salvar</button>
 		</div>
 	</div>
 </form>
