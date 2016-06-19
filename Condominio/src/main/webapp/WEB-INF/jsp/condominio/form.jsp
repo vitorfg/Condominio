@@ -47,27 +47,30 @@
 	}
 </script>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
 <form action="${linkTo[CondominioController].adiciona(null)}"
 	method="post" onsubmit="return valida_form(this)">
 	<div class="row"></div>
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="dataReferencia">Data De Referência *</label> <input
-					id="dataReferencia"
-					class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataReferencia"
+				<label for="dataReferencia">Data de Referência *</label>
+				<input	id="dataReferencia"	class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataReferencia" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência do condominio"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia}"/>">
-
 			</div>
 		</div>
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="dataEmissao">Data De Emissão *</label> <input
-					id="dataEmissao"
-					class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataEmissao"
+				<label for="dataEmissao">Data de Emissão *</label>
+				<input	id="dataEmissao" class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataEmissao" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de emissão do condominio"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataEmissao}"/>">
 
 			</div>
@@ -75,10 +78,9 @@
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="dataVencimento">Data De Vencimento *</label> <input
-					id="dataVencimento"
-					class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataVencimento"
+				<label for="dataVencimento">Data de Vencimento *</label> 
+				<input id="dataVencimento" placeholder="e.x 10/06" class="form-control w3-input w3-border w3-round-large"
+					type="text"	name="condominio.dataVencimento" data-toggle="tooltip" title="Data de vencimento do condominio"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento}"/>">
 
 			</div>
@@ -86,10 +88,9 @@
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="dataPagamento">Data De Pagamento *</label> <input
-					id="dataPagamento"
-					class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataPagamento"
+				<label for="dataPagamento">Data de Pagamento *</label>
+				<input	id="dataPagamento"	class="form-control w3-input w3-border w3-round-large" type="text"
+					name="condominio.dataPagamento" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de pagamento do condominio"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento}"/>">
 
 			</div>
@@ -97,29 +98,27 @@
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="numParcelas">Número de Parcelas</label> <input
-					id="numParcelas"
-					class="form-control w3-input w3-border w3-round-large"
-					type="number" name="condominio.numParcelas"
+				<label for="numParcelas">Número de Parcelas</label>
+				<input	id="numParcelas" class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.numParcelas" placeholder="e.x 12" data-toggle="tooltip" title="Número de parcelas do condominio"
 					value="${condominio.numParcelas}" />
 			</div>
 		</div>
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="parcelasPagas">Parcelas Pagas</label> <input
-					id="parcelasPagas"
-					class="form-control w3-input w3-border w3-round-large"
-					type="number" name="condominio.parcelasPagas"
+				<label for="parcelasPagas">Parcelas Pagas</label>
+				<input	id="parcelasPagas"	class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.parcelasPagas" placeholder="e.x 12" data-toggle="tooltip" title="Parcelas pagas do condominio"
 					value="${condominio.parcelasPagas}" />
 			</div>
 		</div>
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="apartamento">Apartamento *</label> <select
-					class="form-control w3-input w3-border w3-round-large"
-					id="apartamento" name="condominio.idApt">
+				<label for="apartamento">Apartamento *</label>
+				<select	class="form-control w3-input w3-border w3-round-large"
+					id="apartamento" name="condominio.idApt" data-toggle="tooltip" title="Apartamento do condominio">
 					<c:forEach var="a" items="${apartamentos}">
 						<option value="${a.id}">${a.numeroApt}</option>
 					</c:forEach>
@@ -129,43 +128,39 @@
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="porcentagemJuros">Porcentagem de Juros *</label> <input
-					id="porcentagemJuros"
-					class="form-control w3-input w3-border w3-round-large"
-					type="number" name="condominio.porcentagemJuros"
+				<label for="porcentagemJuros">Porcentagem de Juros *</label>
+				<input	id="porcentagemJuros"	class="form-control w3-input w3-border w3-round-large"
+					type="number" name="condominio.porcentagemJuros" placeholder="e.x 2" data-toggle="tooltip" title="porcentagem de juros do condominio"
 					value="${condominio.porcentagemJuros}" />
 			</div>
-
 		</div>
 	</div>
-
-
-
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo">
-			<label for="totalPagar">Total a Pagar *</label> <input
-				id="totalPagar"
-				class="form-control w3-input w3-border w3-round-large" type="number"
+			<label for="totalPagar">Total a Pagar *</label>
+			<input id="totalPagar" 	class="form-control w3-input w3-border w3-round-large" type="number"
+				placeholder="e.x 120.00" data-toggle="tooltip" title="Total a pagar do condominio"
 				name="condominio.totalPagar" value="${condominio.totalPagar}" />
 		</div>
 	</div>
-
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo" style="width: 371px;">
-			<label for="late">Atraso</label> <input id="late" class="w3-validate"
-				type="checkbox" name="condominio.late" value=true />
+			<label for="late" data-toggle="tooltip" title="atraso do condominio">Atraso</label>
+			<input id="late" class="w3-validate" type="checkbox" data-toggle="tooltip" title="atraso do condominio"
+				name="condominio.late" value=true />
 				
 				&nbsp;
 				
-				<label for="pagouAtual">Pago no Mês Corrente</label> <input id="pagouAtual"
-				class="w3-validate" type="checkbox" name="condominio.pagouAtual"
-				value=true />
+				<label for="pagouAtual" data-toggle="tooltip" title="Pago no mês corrente do condominio">Pago no Mês Corrente</label>
+				<input id="pagouAtual" class="w3-validate" type="checkbox"
+				name="condominio.pagouAtual" value=true data-toggle="tooltip" title="Pago no mês corrente do condominio" />
 		</div>
 	</div>
 
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo">
-			<button class="w3-btn w3-round w3-ripple" type="submit">Salvar</button>
+			<button class="w3-btn w3-round w3-ripple" data-toggle="tooltip" title="Salvar registro do condominio"
+			type="submit">Salvar</button>
 		</div>
 	</div>
 	<h1 class="w3-text-white">Correcao</h1>

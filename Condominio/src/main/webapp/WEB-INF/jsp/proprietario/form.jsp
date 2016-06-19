@@ -27,6 +27,12 @@
 	}
 </script>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
 <form action="${linkTo[ProprietarioController].adiciona(null)}"
 	method="post">
 
@@ -38,11 +44,10 @@
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="nomeProprietario">Nome *</label> <input
-					id="nomeProprietario"
-					class="form-control w3-input w3-border w3-round-large" type="text"
-					name="proprietario.nomeProprietario"
-					value="${proprietario.nomeProprietario}" />
+				<label for="nomeProprietario">Nome *</label>
+				<input	id="nomeProprietario" class="form-control w3-input w3-border w3-round-large" type="text"
+					name="proprietario.nomeProprietario" data-toggle="tooltip" title="Nome do proprietário"
+					placeholder="e.x Pedro Henrique" value="${proprietario.nomeProprietario}" />
 			</div>
 		</div>
 
@@ -50,15 +55,17 @@
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="rg">RG</label> <input id="rg"
-					class="form-control w3-input w3-border w3-round-large" type="text"
+				<label for="rg">RG</label>
+				<input id="rg"	class="form-control w3-input w3-border w3-round-large" type="text"
+					placeholder="e.x 402265885" data-toggle="tooltip" title="RG do proprietário"
 					name="proprietario.rg" value="${proprietario.rg}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="cpf">CPF *</label> <input id="cpf"
-					class="form-control w3-input w3-border w3-round-large" type="text"
+				<label for="cpf">CPF *</label>
+				<input id="cpf"	class="form-control w3-input w3-border w3-round-large" type="text"
+					placeholder="e.x 05814526581" data-toggle="tooltip" title="CPF do proprietário"
 					name="proprietario.cpf" value="${proprietario.cpf}" />
 			</div>
 		</div>
@@ -66,15 +73,17 @@
 	<div class="row">
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="fone1">Telefone 1 *</label> <input id="fone1"
-					class="form-control w3-input w3-border w3-round-large" type="text"
+				<label for="fone1">Telefone 1 *</label>
+				<input id="fone1" class="form-control w3-input w3-border w3-round-large" type="text"
+					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
 					name="proprietario.fone1" value="${proprietario.fone1}" />
 			</div>
 		</div>
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="fone2">Telefone 2</label> <input id="fone2"
-					class="form-control w3-input w3-border w3-round-large" type="text"
+				<label for="fone2">Telefone 2</label>
+				<input id="fone2" class="form-control w3-input w3-border w3-round-large" type="text"
+					placeholder="e.x 20173114" data-toggle="tooltip" title="Telefone do proprietário"
 					name="proprietario.fone2" value="${proprietario.fone2}" />
 			</div>
 		</div>
@@ -82,7 +91,8 @@
 
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo">
-			<button class="w3-btn w3-round w3-ripple" type="submit">Salvar</button>
+			<button class="w3-btn w3-round w3-ripple" data-toggle="tooltip" title="Salvar registro do proprietário"
+			type="submit">Salvar</button>
 		</div>
 	</div>
 	<h1 class="w3-text-white">Correcao</h1>

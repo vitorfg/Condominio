@@ -6,6 +6,12 @@
 
 <br>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
 <form action="${linkTo[ApartamentoController].adiciona(null)}"
 	method="post">
 
@@ -17,6 +23,7 @@
 			<div class="w3-third conteudo">
 				<label for="numeroApt">Nº Apartamento *</label> <input
 					id="numeroApt" class="form-control w3-input w3-border w3-round-large" type="number"
+					placeholder="e.x 320" data-toggle="tooltip" title="Número do apartamento"
 					name="apartamento.numeroApt" value="${apartamento.numeroApt}">
 			</div>
 		</div>
@@ -25,7 +32,8 @@
 			<div class="w3-third conteudo">
 				<label for="qtdQuartos">Quantidade de quartos *</label> <input
 					id="qtdQuartos" class="form-control w3-input w3-border w3-round-large" type="number"
-					name="apartamento.qtdQuartos" value="${apartamento.qtdQuartos}">
+					placeholder="e.x 2" name="apartamento.qtdQuartos" data-toggle="tooltip" title="Quantidade de quartos"
+					value="${apartamento.qtdQuartos}">
 			</div>
 		</div>
 	</div>
@@ -33,7 +41,7 @@
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="proprietario">Proprietário *</label>
-				<select	class="form-control w3-input w3-border w3-round-large"
+				<select	class="form-control w3-input w3-border w3-round-large" data-toggle="tooltip" title="Nome do proprietário"
 					id="proprietario" name="apartamento.idProp">
 					<c:forEach var="p" items="${proprietarios}">
 						<option value="${p.id}">${p.nomeProprietario}</option>
@@ -47,7 +55,7 @@
 			<div class="w3-third conteudo">
 				<label for="tipoOcupacao">Tipo de ocupação *</label> <select
 					class="form-control w3-input w3-border w3-round-large" id="tipoOcupacao"
-					name="apartamento.tipoOcupacao">
+					data-toggle="tooltip" title="Tipo de ocupação" name="apartamento.tipoOcupacao">
 					<option value="Proprietário">Proprietário</option>
 					<option value="Inquilino">Inquilino</option>
 					<option value="Vazio">Vazio</option>
@@ -58,7 +66,8 @@
 
 	<div class="w3-row-padding">
 		<div class="w3-third conteudo">
-			<button class="w3-btn w3-round w3-ripple" type="submit">Salvar</button>
+			<button class="w3-btn w3-round w3-ripple" data-toggle="tooltip" title="Salvar apartamento"
+			 type="submit">Salvar</button>
 		</div>
 	</div>
 </form>
