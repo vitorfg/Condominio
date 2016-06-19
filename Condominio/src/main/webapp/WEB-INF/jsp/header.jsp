@@ -1,6 +1,31 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+		
+	<title>Controle de Condomínio</title>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<style>
+	div.conteudo {
+        margin: 10px;
+    }
+    </style>
+	
+	
+</head>
+<!--  -->
+<body>
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +40,22 @@ div.conteudo {
 }
 </style>
 
-<script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('#dataReferencia').mask('00/00/0000'); //Data de Referencia
+	$('#txtCep').mask('00000-000'); //CEP
+	$('#valorDespesa').mask('000.000.000.000.000,00', {reverse: true}); //Dinheiro
+	$('#valorCobrado').mask('000.000.000.000.000,00', {reverse: true});
+	
+	
+});
+
+
+	
 	function myAccProp() {
 		var x = document.getElementById("AccProp");
 
