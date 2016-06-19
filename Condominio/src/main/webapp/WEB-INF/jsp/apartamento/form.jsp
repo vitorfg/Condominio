@@ -10,10 +10,36 @@
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
+
+function valida_form() {
+	if (document.getElementById("numeroApt").value.length < 3) {
+		alert('Por favor, preencha o campo numero do apartamento.');
+		document.getElementById("numeroApt").focus();
+
+		return false
+	} else if (document.getElementById("qtdQuartos").value.length < 1) {
+		alert('Por favor, preencha o campo de quantidade de quartos.');
+		document.getElementById("qtdQuartos").focus();
+
+		return false
+	}else if(document.getElementById("proprietario").value == null){
+		alert('Por favor, selecione um proprietario.');
+		document.getElementById("proprietario").focus();
+
+		return false
+
+	}else if(document.getElementById("tipoOcupacao").value == null){
+		alert('Por favor, selecione uma ocupacao.');
+		document.getElementById("tipoOcupacao").focus();
+
+		return false
+
+	}
+}
 </script>
 
 <form action="${linkTo[ApartamentoController].adiciona(null)}"
-	method="post">
+	method="post" onsubmit="return valida_form(this)">
 
 	<input id="id" class="form-control" type="number" name="apartamento.id"
 		value="${apartamento.id}" style="display: none" />

@@ -8,22 +8,22 @@
 
 <script type="text/javascript" language="javascript">
 	function valida_form() {
-		if (document.getElementById("dataReferencia").value.length != 6) {
+		if (document.getElementById("dataReferencia").value.length < 7) {
 			alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 			document.getElementById("dataReferencia").focus();
 
 			return false
-		} else if (document.getElementById("dataEmissao").value.length != 6) {
+		} else if (document.getElementById("dataEmissao").value.length < 7) {
 			alert('Por favor, preencha o campo de Data de emissão conforme o exemplo');
 			document.getElementById("dataEmissao").focus();
 
 			return false
-		} else if ((document.getElementById("dataVencimento").value.length != 10)) {
+		} else if ((document.getElementById("dataVencimento").value.length < 10)) {
 			alert('Por favor, preencha o campo de vencimento conforme o exemplo');
 			document.getElementById("dataVencimento").focus();
 
 			return false
-		} else if ((document.getElementById("dataPagamento").value.length != 10)) {
+		} else if ((document.getElementById("dataPagamento").value.length < 10)) {
 			alert('Por favor, preencha o campo de pagamento conforme o exemplo');
 			document.getElementById("datPagamento").focus();
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="dataReferencia">Data de Referência *</label>
 				<input	id="dataReferencia"	class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataReferencia" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência do condominio"
+					name="condominio.dataReferencia" placeholder="e.x 10/2006" data-toggle="tooltip" title="Data de referência do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" value="${condominio.dataReferencia}"/>
 			</div>
 		</div>
@@ -70,7 +70,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="dataEmissao">Data de Emissão *</label>
 				<input	id="dataEmissao" class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataEmissao" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de emissão do condominio"
+					name="condominio.dataEmissao" placeholder="e.x 10/2006" data-toggle="tooltip" title="Data de emissão do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7"  value="${condominio.dataEmissao}"/>
 
 			</div>
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="dataVencimento">Data de Vencimento *</label> 
-				<input id="dataVencimento" placeholder="e.x 10/06" class="form-control w3-input w3-border w3-round-large"
+				<input id="dataVencimento" placeholder="e.x 10/06/2016" class="form-control w3-input w3-border w3-round-large"
 					type="text"	name="condominio.dataVencimento" data-toggle="tooltip" title="Data de vencimento do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" value="${condominio.dataVencimento}"/>
 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="dataPagamento">Data de Pagamento *</label>
 				<input	id="dataPagamento"	class="form-control w3-input w3-border w3-round-large" type="text"
-					name="condominio.dataPagamento" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de pagamento do condominio"
+					name="condominio.dataPagamento" placeholder="e.x 10/06/2016" data-toggle="tooltip" title="Data de pagamento do condominio"
 					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  value="${condominio.dataPagamento}"/>
 
 			</div>
