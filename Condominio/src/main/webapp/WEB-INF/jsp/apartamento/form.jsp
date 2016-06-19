@@ -24,7 +24,7 @@ $(document).ready(function(){
 				<label for="numeroApt">Nº Apartamento *</label> <input
 					id="numeroApt" class="form-control w3-input w3-border w3-round-large" type="number"
 					placeholder="e.x 320" data-toggle="tooltip" title="Número do apartamento"
-					name="apartamento.numeroApt" value="${apartamento.numeroApt}">
+					name="apartamento.numeroApt" onkeypress="mascara(this,soNumeros)" maxlength="3" value="${apartamento.numeroApt}">
 			</div>
 		</div>
 
@@ -33,7 +33,7 @@ $(document).ready(function(){
 				<label for="qtdQuartos">Quantidade de quartos *</label> <input
 					id="qtdQuartos" class="form-control w3-input w3-border w3-round-large" type="number"
 					placeholder="e.x 2" name="apartamento.qtdQuartos" data-toggle="tooltip" title="Quantidade de quartos"
-					value="${apartamento.qtdQuartos}">
+					onkeypress="mascara(this,soNumeros)" maxlength="1" value="${apartamento.qtdQuartos}">
 			</div>
 		</div>
 	</div>
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="proprietario">Proprietário *</label>
 				<select	class="form-control w3-input w3-border w3-round-large" data-toggle="tooltip" title="Nome do proprietário"
-					id="proprietario" name="apartamento.idProp">
+					id="proprietario" name="apartamento.idProp" style=" height : 40px;">
 					<c:forEach var="p" items="${proprietarios}">
 						<option value="${p.id}">${p.nomeProprietario}</option>
 					</c:forEach>

@@ -62,7 +62,7 @@ $(document).ready(function(){
 				<label for="dataReferencia">Data de Referência *</label>
 				<input	id="dataReferencia"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataReferencia" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de referência do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" value="${condominio.dataReferencia}"/>">
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7" value="${condominio.dataReferencia}"/>
 			</div>
 		</div>
 
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				<label for="dataEmissao">Data de Emissão *</label>
 				<input	id="dataEmissao" class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataEmissao" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de emissão do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7"  value="${condominio.dataEmissao}"/>">
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,freferencia)" maxlength="7"  value="${condominio.dataEmissao}"/>
 
 			</div>
 		</div>
@@ -81,7 +81,7 @@ $(document).ready(function(){
 				<label for="dataVencimento">Data de Vencimento *</label> 
 				<input id="dataVencimento" placeholder="e.x 10/06" class="form-control w3-input w3-border w3-round-large"
 					type="text"	name="condominio.dataVencimento" data-toggle="tooltip" title="Data de vencimento do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" value="${condominio.dataVencimento}"/>">
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10" value="${condominio.dataVencimento}"/>
 
 			</div>
 		</div>
@@ -91,7 +91,7 @@ $(document).ready(function(){
 				<label for="dataPagamento">Data de Pagamento *</label>
 				<input	id="dataPagamento"	class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataPagamento" placeholder="e.x 10/06" data-toggle="tooltip" title="Data de pagamento do condominio"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  value="${condominio.dataPagamento}"/>">
+					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)" maxlength="10"  value="${condominio.dataPagamento}"/>
 
 			</div>
 		</div>
