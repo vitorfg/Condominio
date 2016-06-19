@@ -8,12 +8,12 @@
 
 <script type="text/javascript" language="javascript">
 	function valida_form() {
-		if (document.getElementById("dataReferencia").value.length != 7) {
+		if (document.getElementById("dataReferencia").value.length != 6) {
 			alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 			document.getElementById("dataReferencia").focus();
 
 			return false
-		} else if (document.getElementById("dataEmissao").value.length != 7) {
+		} else if (document.getElementById("dataEmissao").value.length != 6) {
 			alert('Por favor, preencha o campo de Data de emissão conforme o exemplo');
 			document.getElementById("dataEmissao").focus();
 
