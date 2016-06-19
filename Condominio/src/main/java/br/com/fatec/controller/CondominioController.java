@@ -29,17 +29,18 @@ public class CondominioController {
 	private Result result;
 	private DespesasController despesas;
 	private ApartamentoDao apartamentoDao;
-	
+
 	@Inject
-	public CondominioController(CondominioDao condominioDao, Validator validator, Result result, ApartamentoDao apartamentoDao) {
+	public CondominioController(CondominioDao condominioDao, Validator validator, Result result,
+			ApartamentoDao apartamentoDao) {
 		this.condominioDao = condominioDao;
 		this.validator = validator;
 		this.result = result;
 		this.apartamentoDao = apartamentoDao;
 	}
-	
+
 	public CondominioController() {
-	
+
 	}
 
 	/* MÉTODOS VRAPTOR */
@@ -52,12 +53,12 @@ public class CondominioController {
 		List<Condominio> condominios = condominioDao.lista();
 		result.include("condominios", condominios);
 	}
-	
+
 	@IncludeParameters
 	@Post
 	public void adiciona(Condominio condominio) {
 		condominio.setApartamento(apartamentoDao.busca(condominio.getIdApt()));
-		
+
 		validator.onErrorForwardTo(this).form();
 		condominio = carregaCondominio(condominio);
 		condominioDao.adiciona(condominio);

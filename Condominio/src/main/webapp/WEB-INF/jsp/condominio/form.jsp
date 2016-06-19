@@ -47,7 +47,7 @@
 	}
 </script>
 
-<form action="${linkTo[CondominiosController].adiciona(null)}"
+<form action="${linkTo[CondominioController].adiciona(null)}"
 	method="post" onsubmit="return valida_form(this)">
 	<div class="row"></div>
 	<div class="row">

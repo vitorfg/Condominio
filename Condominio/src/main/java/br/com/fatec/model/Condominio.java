@@ -1,5 +1,7 @@
 package br.com.fatec.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -67,12 +69,28 @@ public class Condominio {
 		this.id = id;
 	}
 
+	private Calendar strToCal(String strDate) throws ParseException {
+		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(strDate);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+
+		return cal;
+	}
+
 	public Calendar getDataReferencia() {
 		Calendar dataReferencia = new GregorianCalendar();
 		dataReferencia.setTime(new Date());
 		dataReferencia.add(Calendar.MONTH, -1);
 
 		return dataReferencia;
+	}
+
+	public void setDataReferencia(String strDataReferencia) {
+		try {
+			dataReferencia = strToCal(strDataReferencia);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setDataReferencia(Calendar dataReferencia) {
@@ -83,16 +101,24 @@ public class Condominio {
 		return new GregorianCalendar();
 	}
 
-	public void setDataEmissao(Calendar dataEmissao) {
-		this.dataEmissao = dataEmissao;
+	public void setDataEmissao(String strDataEmissao) {
+		try {
+			dataEmissao = strToCal(strDataEmissao);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Calendar getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public void setDataVencimento(Calendar dataVencimento) {
-		this.dataVencimento = dataVencimento;
+	public void setDataVencimento(String strDataVencimento) {
+		try {
+			dataVencimento = strToCal(strDataVencimento);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Calendar getDataPagamento() {
