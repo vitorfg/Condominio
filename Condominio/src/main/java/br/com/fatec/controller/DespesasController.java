@@ -68,9 +68,8 @@ public class DespesasController {
 	@Get("/despesa/{id}")
 	public void altera(long id) {
 		populaCombo();
-
 		Despesas despesa = despesasDao.busca(id);
-		result.include("despesa", despesa);
+		result.include("despesas", despesa);
 		result.of(this).form();
 	}
 
