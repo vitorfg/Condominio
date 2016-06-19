@@ -80,8 +80,13 @@ public class CondominioController {
 
 	@Delete("/condominio/{id}")
 	public void deleta(long id) {
-		condominioDao.deleta(id);
-		result.redirectTo(this).lista();
+		try {
+			condominioDao.deleta(id);
+		} catch (Exception e) {
+			System.out.println("Error!");
+		} finally {
+			result.redirectTo(this).lista();
+		}
 	}
 
 	/* MÉTODOS ESPECÍFICOS */

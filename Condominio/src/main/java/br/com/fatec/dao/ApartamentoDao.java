@@ -40,7 +40,9 @@ public class ApartamentoDao {
 	}
 
 	public void deleta(long id) {
+		manager.getTransaction().begin();
 		manager.remove(manager.getReference(Apartamento.class, id));
+		manager.getTransaction().commit();
 	}
 
 }

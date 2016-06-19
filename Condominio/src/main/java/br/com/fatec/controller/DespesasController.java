@@ -76,8 +76,13 @@ public class DespesasController {
 
 	@Delete("/despesa/{id}")
 	public void deleta(long id) {
-		despesasDao.deleta(id);
-		result.redirectTo(this).lista();
+		try {
+			despesasDao.deleta(id);
+		} catch (Exception e) {
+			System.out.println("Error!");
+		} finally {
+			result.redirectTo(this).lista();
+		}
 	}
 
 	/* MÉTODOS ESPECÍFICOS */

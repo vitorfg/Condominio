@@ -59,8 +59,13 @@ public class ProprietarioController {
 
 	@Delete("/proprietario/{id}")
 	public void deleta(long id) {
-		proprietarioDao.deleta(id);
-		result.redirectTo(this).lista();
+		try {
+			proprietarioDao.deleta(id);
+		} catch (Exception e) {
+			System.out.println("Error!");
+		} finally {
+			result.redirectTo(this).lista();
+		}
 	}
 	
 }

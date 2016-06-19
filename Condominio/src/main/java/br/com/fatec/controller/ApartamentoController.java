@@ -83,8 +83,13 @@ public class ApartamentoController {
 
 	@Delete("apartamento/{id}")
 	public void deleta(long id) {
-		apartamentoDao.deleta(id);
-		result.redirectTo(this).lista();
+		try {
+			apartamentoDao.deleta(id);
+		} catch (Exception e) {
+			System.out.println("Error!");
+		} finally {
+			result.redirectTo(this).lista();
+		}
 	}
 
 }
