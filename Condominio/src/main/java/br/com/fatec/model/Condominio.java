@@ -28,12 +28,15 @@ public class Condominio {
 	@Temporal(TemporalType.DATE)
 	private Calendar dataReferencia;
 
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataEmissao;
 
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataVencimento;
 
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPagamento;
 
@@ -46,10 +49,16 @@ public class Condominio {
 
 	private long idApt;
 
+	@NotEmpty
+	private boolean late;
+
+	@NotEmpty
 	private boolean pagouAtual;
 
+	@NotEmpty
 	private double porcentagemJuros;
 
+	@NotEmpty
 	private double totalPagar;
 
 	public long getId() {
@@ -142,6 +151,14 @@ public class Condominio {
 
 	public void setApartamento(Apartamento apartamento) {
 		this.apartamento = apartamento;
+	}
+
+	public boolean isLate() {
+		return late;
+	}
+
+	public void setLate(boolean late) {
+		this.late = late;
 	}
 
 	public boolean isPagouAtual() {

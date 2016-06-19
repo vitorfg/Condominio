@@ -14,6 +14,7 @@
 			<th>Remover</th>
 		</tr>
 	</thead>
+	<font color = "red"> ${message}</font>
 	<tbody>
 		<c:forEach items="${apartamentos}" var="a">
 			<c:set var="id" value="${a.id}" scope="request"></c:set>

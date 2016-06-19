@@ -15,6 +15,7 @@
 				<th>Remover</th>
 			</tr>
 		</thead>
+		<font color = "red"> ${message}</font>
 		<tbody>
 			<c:forEach items="${proprietarios}" var="p">
 				<c:set var="id" value="${p.id}" scope="request"></c:set>
@@ -25,13 +26,15 @@
 					<td>${p.fone1}</td>
 
 					<td><a href="${linkTo[ProprietarioController].altera(p.id)}">
-							<button class="w3-btn btn-link"  name="_method">
-							<span class="fa fa-file-text"></span>
+							<button class="w3-btn btn-link" name="_method">
+								<span class="fa fa-file-text"></span>
 							</button>
 					</a></td>
-					<td>	
-						<form action="${linkTo[ProprietarioController].deleta(p.id)}" method="POST">
-							<button class="w3-btn btn-link" type="submit" name="_method" value="DELETE">
+					<td>
+						<form action="${linkTo[ProprietarioController].deleta(p.id)}"
+							method="POST">
+							<button class="w3-btn btn-link" type="submit" name="_method"
+								value="DELETE">
 								<span class="fa fa-trash"></span>
 							</button>
 						</form>

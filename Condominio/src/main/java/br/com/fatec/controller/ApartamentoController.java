@@ -14,8 +14,10 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.fatec.dao.ApartamentoDao;
+import br.com.fatec.dao.CondominioDao;
 import br.com.fatec.dao.ProprietarioDao;
 import br.com.fatec.model.Apartamento;
+import br.com.fatec.model.Condominio;
 import br.com.fatec.model.Proprietario;
 
 @Controller
@@ -25,14 +27,16 @@ public class ApartamentoController {
 	private Validator validator;
 	private Result result;
 	private ProprietarioDao proprietarioDao;
+	private CondominioDao condominioDao;
 
 	@Inject
 	public ApartamentoController(ApartamentoDao apartamentoDao, Validator validator, Result result,
-			ProprietarioDao proprietarioDao) {
+			ProprietarioDao proprietarioDao,CondominioDao condominioDao) {
 		this.apartamentoDao = apartamentoDao;
 		this.validator = validator;
 		this.result = result;
 		this.proprietarioDao = proprietarioDao;
+		this.condominioDao = condominioDao;
 	}
 
 	public ApartamentoController() {
@@ -83,12 +87,21 @@ public class ApartamentoController {
 
 	@Delete("apartamento/{id}")
 	public void deleta(long id) {
-		try {
-			apartamentoDao.deleta(id);
-		} catch (Exception e) {
-			System.out.println("Error!");
-		} finally {
+		boolean existe = false;
+		List<Condominio> condominios = condominioDao.lista();
+		Apartamento apt = apartamentoDao.busca(id);
+		for(Condominio c:condominios){
+			if(c.getApartamento().equals(apt)){
+				existe = true;
+			}
+		}
+		if(existe == true){
+			result.include("message", "Erro ao excluir Apartamento! Desvincule o Apartamento do Condominio");
 			result.redirectTo(this).lista();
+		} else {
+			apartamentoDao.deleta(id);
+			result.include("message", "Exclusão realizada com sucesso");
+			result.redirectTo(this).lista();	
 		}
 	}
 

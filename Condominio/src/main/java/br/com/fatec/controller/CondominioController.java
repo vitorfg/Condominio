@@ -29,14 +29,16 @@ public class CondominioController {
 	private Result result;
 	private DespesasController despesas;
 	private ApartamentoDao apartamentoDao;
+	private DespesasDao despesasDao;
 
 	@Inject
 	public CondominioController(CondominioDao condominioDao, Validator validator, Result result,
-			ApartamentoDao apartamentoDao) {
+			ApartamentoDao apartamentoDao,DespesasDao despesasDao) {
 		this.condominioDao = condominioDao;
 		this.validator = validator;
 		this.result = result;
 		this.apartamentoDao = apartamentoDao;
+		this.despesasDao = despesasDao;
 	}
 
 	public CondominioController() {
@@ -72,7 +74,6 @@ public class CondominioController {
 	@Get("/condominio/{id}")
 	public void altera(long id) {
 		populaCombo();
-
 		Condominio condominio = condominioDao.busca(id);
 		result.include("condominio", condominio);
 		result.of(this).lista();
@@ -80,12 +81,21 @@ public class CondominioController {
 
 	@Delete("/condominio/{id}")
 	public void deleta(long id) {
-		try {
-			condominioDao.deleta(id);
-		} catch (Exception e) {
-			System.out.println("Error!");
-		} finally {
+		boolean existe = false;
+		List<Despesas> despesas = despesasDao.lista();
+		Condominio cond = condominioDao.busca(id);
+		for(Despesas d: despesas){
+			if(d.getCondominio().equals(cond)){
+				existe = true;
+			}
+		}
+		if(existe == true){
+			result.include("message", "Erro ao excluir Condominio! Condominio possui Despesas");
 			result.redirectTo(this).lista();
+		} else {
+			condominioDao.deleta(id);
+			result.include("message", "Exclusão realizada com sucesso");
+			result.redirectTo(this).lista();	
 		}
 	}
 

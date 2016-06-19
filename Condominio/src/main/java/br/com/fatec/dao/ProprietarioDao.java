@@ -40,9 +40,7 @@ public class ProprietarioDao {
 	}
 	
 	public void deleta(long id) {
-		manager.getTransaction().begin();
 		manager.remove(manager.getReference(Proprietario.class, id));
-		manager.getTransaction().commit();
 	}
 	
 }

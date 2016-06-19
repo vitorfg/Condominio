@@ -16,6 +16,7 @@
 			<th></th>
 		</tr>
 	</thead>
+	<font color = "red"> ${message}</font>
 	<tbody>
 		<c:forEach items="${despesas}" var="d">
 			<c:set var="id" value="${d.id}" scope="request"></c:set>
