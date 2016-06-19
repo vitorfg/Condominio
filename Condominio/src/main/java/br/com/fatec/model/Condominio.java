@@ -36,7 +36,6 @@ public class Condominio {
 	@Temporal(TemporalType.DATE)
 	private Calendar dataVencimento;
 
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataPagamento;
 
@@ -49,8 +48,7 @@ public class Condominio {
 
 	private long idApt;
 
-	@NotNull
-	private Boolean pagouAtual;
+	private boolean pagouAtual;
 
 	private double porcentagemJuros;
 
