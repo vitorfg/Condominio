@@ -7,7 +7,7 @@ nop<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <br>
 
 <script>
-	$(document).ready(function() {
+	$(document).ready (function() {
 		$('[data-toggle="tooltip"]').tooltip();
 	});
 
@@ -37,7 +37,7 @@ nop<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 </script>
 
 <form action="${linkTo[DespesasController].adiciona(null)}"
-	method="post">
+	method="post" onsubmit="return valida_form(this)">
 
 	<input id="id" class="form-control" type="number" name="despesas.id"
 		value="${despesas.id}" style="display: none" />
