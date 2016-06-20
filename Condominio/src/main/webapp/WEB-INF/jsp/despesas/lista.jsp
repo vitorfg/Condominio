@@ -10,6 +10,7 @@
 			<th>Id</th>
 			<th>Descrição</th>
 			<th>Valor Da Despesa</th>
+			<th>Valor Cobrado</th>
 			<th>Data De Referência</th>
 			<th>Editar</th>
 			<th>Remover</th>
@@ -24,6 +25,7 @@
 				<td>${d.id}</td>
 				<td>${d.descricao}</td>
 				<td>${d.valorDespesa}</td>
+				<td>${d.valorCobrado}</td>
 				<td>${d.dataReferencia.time}</td>
 
 				<td><a href="${linkTo[DespesasController].altera(d.id)}"> 
