@@ -30,15 +30,19 @@ public class CondominioController {
 	private DespesasController despesas;
 	private ApartamentoDao apartamentoDao;
 	private DespesasDao despesasDao;
+	private Condominio cond;
+	private Despesas desp;
 
 	@Inject
 	public CondominioController(CondominioDao condominioDao, Validator validator, Result result,
-			ApartamentoDao apartamentoDao,DespesasDao despesasDao) {
+			ApartamentoDao apartamentoDao, DespesasDao despesasDao, Condominio cond, Despesas desp) {
 		this.condominioDao = condominioDao;
 		this.validator = validator;
 		this.result = result;
 		this.apartamentoDao = apartamentoDao;
 		this.despesasDao = despesasDao;
+		this.cond = cond;
+		this.desp = desp;
 	}
 
 	public CondominioController() {
@@ -65,7 +69,7 @@ public class CondominioController {
 	public void adiciona(Condominio condominio) {
 		condominio.setApartamento(apartamentoDao.busca(condominio.getIdApt()));
 		validator.onErrorForwardTo(this).form();
-//		condominio = carregaCondominio(condominio);
+		condominio = carregaCondominio(condominio);
 		condominioDao.adiciona(condominio);
 		result.redirectTo(this).lista();
 	}
@@ -83,107 +87,92 @@ public class CondominioController {
 		boolean existe = false;
 		List<Despesas> despesas = despesasDao.lista();
 		Condominio cond = condominioDao.busca(id);
-		try{
-			for(Despesas d: despesas){
-				if(d.getCondominio().equals(cond)){
+		try {
+			for (Despesas d : despesas) {
+				if (d.getCondominio().equals(cond)) {
 					existe = true;
 				}
 			}
-			if(existe == true){
+			if (existe == true) {
 				result.include("message", "Erro ao excluir Condominio! Condominio possui Despesas");
 				result.redirectTo(this).lista();
 			} else {
 				condominioDao.deleta(id);
 				result.include("message", "Exclusão realizada com sucesso");
-				result.redirectTo(this).lista();	
+				result.redirectTo(this).lista();
 			}
-		} catch(NullPointerException e){
+		} catch (NullPointerException e) {
 			condominioDao.deleta(id);
 			result.include("message", "Exclusão realizada com sucesso");
 			result.redirectTo(this).lista();
 		}
-		
+
 	}
 
 	/* MÉTODOS ESPECÍFICOS */
-//	private Condominio carregaCondominio(Condominio condominio) {
-//		condominio.setPorcentagemJuros(defineJuros(condominio));
-//		condominio.setTotalPagar(geraValorPagamentoComJuros(condominio));
-//
-//		return condominio;
-//	}
-//
-//	private double geraValorPagamentoSemJuros(Condominio condominio) {
-//		DespesasDao despesasDao = new DespesasDao();
-//		List<Despesas> despesas = despesasDao.lista();
-//		double valorDespesas = 0;
-//
-//		for (Despesas d : despesas) {
-//			if (condominio.getDataReferencia().equals(d.getDataReferencia())) {
-//				valorDespesas += d.getValorCobrado();
-//			}
-//		}
-//		return valorDespesas;
-//	}
-//
-//	private double geraValorPagamentoComJuros(Condominio condominio) {
-//		double valorSemJuros = geraValorPagamentoSemJuros(condominio), valorComJuros = 0;
-//		valorComJuros = valorSemJuros + valorSemJuros * condominio.getPorcentagemJuros();
-//
-//		return valorComJuros;
-//	}
-//
-//	private boolean atrasou(Condominio condominio) {
-//		if (condominio.getDataVencimento().compareTo(condominio.getDataPagamento()) < 0) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
-//
-//	private double defineJuros(Condominio condominio) {
-//		if (atrasou(condominio)) {
-//			if (condominio.isPagouAtual()) {
-//				return 0.02;
-//			} else {
-//				despesas.adiciona(carregaDespesas(condominio));
-//			}
-//		}
-//		return 0;
-//
-//	}
-//
-//	private Calendar geraDataMesSeg() {
-//		Calendar dataCobranca = new GregorianCalendar();
-//		dataCobranca.setTime(new Date());
-//		dataCobranca.add(Calendar.MONTH, 1);
-//
-//		return dataCobranca;
-//	}
-//
-//	private Despesas carregaDespesas(Condominio condominio) {
-//		Despesas desp = new Despesas();
-//		desp.setDescricao("Multa de 5% referente ao mês anterior");
-//		desp.setValorCobrado(geraValorPagamentoSemJuros(condominio) * 0.05);
-//		desp.setValorDespesa(desp.getValorCobrado());
-//		desp.setEspecifico(true);
-//		desp.setDataReferencia(geraDataMesSeg());
-//		desp.setCondominio(geraCondominioMesSeguinte(condominio));
-//
-//		return desp;
-//	}
-//
-////private Condominio geraCondominioMesSeguinte(Condominio condominioMesPassado) {
-////		Condominio condominioMesSeguinte = new Condominio();
-////		condominioMesSeguinte.setApartamento(condominioMesPassado.getApartamento());
-////		condominioMesSeguinte.setDataReferencia(geraDataMesSeg());
-////		new CondominioDao().adiciona(condominioMesSeguinte);
-////
-////		return condominioMesSeguinte;
-//	}
-//
-//	private double gerarValorParcela(Condominio condominio) {
-//		return condominio.getTotalPagar() / condominio.getNumParcelas();
-//	}
+	private double geraTotalPagar() {
+		double taxa = 1;
 
+		if ((cond.getDataVencimento().compareTo(cond.getDataPagamento()) < 0)) {
+			if (cond.isPagouAtual()) {
+				taxa = 1.02;
+			} else {
+				despesas.adiciona(carregaDespesas(cond));
+			}
+		}
+
+		return (cond.getTotalPagar() * taxa);
+	}
+
+	private double geraJuros() {
+		Condominio cond = new Condominio();
+		double taxa = 1;
+
+		if ((cond.getDataVencimento().compareTo(cond.getDataPagamento()) < 0)) {
+			if (cond.isPagouAtual()) {
+				taxa = 0.02;
+			} else {
+				taxa = 0.05;
+			}
+
+		}
+		return taxa;
+	}
+
+	private Despesas carregaDespesas(Condominio condominio) {
+
+		desp.setDescricao("Multa de 5% referente ao mês anterior");
+		desp.setValorCobrado(geraTotalPagar());
+		desp.setValorDespesa(desp.getValorCobrado());
+		desp.setEspecifico(true);
+		desp.setDataReferencia(geraDataMesSeg());
+		desp.setCondominio(geraCondominioMesSeguinte(condominio));
+
+		return desp;
+	}
+
+	private Calendar geraDataMesSeg() {
+		Calendar dataCobranca = new GregorianCalendar();
+		dataCobranca.setTime(new Date());
+		dataCobranca.add(Calendar.MONTH, 1);
+
+		return dataCobranca;
+	}
+
+	private Condominio geraCondominioMesSeguinte(Condominio condominioMesPassado) {
+		Condominio condominioMesSeguinte = new Condominio();
+
+		condominioMesSeguinte.setApartamento(condominioMesPassado.getApartamento());
+		condominioMesSeguinte.setDataReferencia(geraDataMesSeg());
+		new CondominioDao().adiciona(condominioMesSeguinte);
+
+		return condominioMesSeguinte;
+	}
+
+	private Condominio carregaCondominio(Condominio condominio) {
+		condominio.setPorcentagemJuros(geraJuros());
+		condominio.setTotalPagar(geraTotalPagar());
+
+		return condominio;
+	}
 }
