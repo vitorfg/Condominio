@@ -12,7 +12,7 @@
 			<th>Valor Da Despesa</th>
 			<th>Valor Cobrado</th>
 			<th>Data De Referência</th>
-			<th>Editar</th>
+			<!-- <th>Valor Cobrado</th> -->
 			<th>Remover</th>
 			<th></th>
 		</tr>
@@ -28,11 +28,11 @@
 				<td>${d.valorCobrado}</td>
 				<td>${d.dataReferencia.time}</td>
 
-				<td><a href="${linkTo[DespesasController].altera(d.id)}"> 
+				<!-- <td><a href="${linkTo[DespesasController].altera(d.id)}"> 
 							<button class="w3-btn btn-link"  name="_method">
 							<span class="fa fa-file-text"></span>
 							</button>
-				</a></td>
+				</a></td> -->
 				<td>
 					<form action="${linkTo[DespesasController].deleta(d.id)}"
 						method="POST">
