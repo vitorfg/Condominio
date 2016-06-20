@@ -15,33 +15,28 @@
 				document.getElementById("dataReferencia").focus();
 
 				return false
-			} else if ((document.getElementById("apartamento").value == "")) {
-				alert('Por favor, selecione um apartamento');
-				document.getElementById("apartamento").focus();
-
-				return false
-			}if (document.getElementById("dataEmissao").value.length < 10) {
-				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			}else if (document.getElementById("dataEmissao").value.length < 10) {
+				alert('Por favor, preencha o campo de Data de Emissao conforme o exemplo');
 				document.getElementById("dataEmissao").focus();
 
 				return false
-			}if (document.getElementById("dataVencimento").value.length < 10) {
-				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			}else if (document.getElementById("dataVencimento").value.length < 10) {
+				alert('Por favor, preencha o campo de Data de Vencimento conforme o exemplo');
 				document.getElementById("dataVencimento").focus();
 
 				return false
-			}if (document.getElementById("dataPagamento").value.length < 10) {
-				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			}else if (document.getElementById("dataPagamento").value.length < 10) {
+				alert('Por favor, preencha o campo de Data de Pagamento conforme o exemplo');
 				document.getElementById("dataPagamento").focus();
 
 				return false
-			}if (document.getElementById("apartamento").value == null) {
-				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			}else if (document.getElementById("apartamento").value == null) {
+				alert('Por favor, selecione ao o apartamento');
 				document.getElementById("apartamento").focus();
 
 				return false
-			}if (document.getElementById("totalPagar").value == "") {
-				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			}else if (document.getElementById("totalPagar").value == "") {
+				alert('Por favor, preencha o campo Total a pagar conforme o exemplo');
 				document.getElementById("totalPagar").focus();
 
 				return false
