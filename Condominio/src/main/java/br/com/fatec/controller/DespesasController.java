@@ -25,14 +25,16 @@ public class DespesasController {
 	private Validator validator;
 	private Result result;
 	private CondominioDao condominioDao;
+	private ApartamentoDao apartamentoDao;
 
 	@Inject
 	public DespesasController(DespesasDao despesasDao, Validator validator, Result result,
-			CondominioDao condominioDao) {
+			CondominioDao condominioDao,ApartamentoDao apartamentoDao) {
 		this.despesasDao = despesasDao;
 		this.validator = validator;
 		this.result = result;
 		this.condominioDao = condominioDao;
+		this.apartamentoDao = apartamentoDao;
 	}
 
 	public DespesasController() {
@@ -58,7 +60,6 @@ public class DespesasController {
 	@Post
 	public void adiciona(Despesas despesas) {
 		despesas.setCondominio(condominioDao.busca(despesas.getIdCond()));
-
 		validator.onErrorForwardTo(this).form();
 		despesas = carregaDespesas(despesas);
 		despesasDao.adiciona(despesas);
@@ -69,6 +70,7 @@ public class DespesasController {
 	public void altera(long id) {
 		populaCombo();
 		Despesas despesa = despesasDao.busca(id);
+		despesa = carregaDespesas(despesa);
 		result.include("despesas", despesa);
 		result.of(this).form();
 	}
@@ -83,13 +85,11 @@ public class DespesasController {
 	/* MÉTODOS ESPECÍFICOS */
 	private Despesas carregaDespesas(Despesas despesas) {
 		despesas.setValorCobrado(geraValorCobrado(despesas));
-
 		return despesas;
 	}
 
 	private int geraNumTotalApartamentos() {
-		ApartamentoDao aptDao = new ApartamentoDao();
-		List<Apartamento> apts = aptDao.lista();
+		List<Apartamento> apts = apartamentoDao.lista();
 		int totalQuartos = 0;
 
 		for (Apartamento apt : apts) {
