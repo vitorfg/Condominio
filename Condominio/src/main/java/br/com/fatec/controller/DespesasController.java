@@ -69,7 +69,7 @@ public class DespesasController {
 	}
 
 	/*A Fim de manter a integridade do sistema, uma despesa lançada não poderá ser alterada
-	 * Caso seja necessário, a pessoa deverá excluir a despesa e lança-la novamente
+	 * Caso seja necessário, a pessoa deverá excluir a despesa e lança-la novamente*/
 	@Get("/despesa/{id}")
 	public void altera(long id) {
 		populaCombo();
@@ -77,7 +77,7 @@ public class DespesasController {
 		despesa = carregaDespesas(despesa);
 		result.include("despesas", despesa);
 		result.of(this).form();
-	}*/
+	}
 
 	@Delete("/despesa/{id}")
 	public void deleta(long id) {
