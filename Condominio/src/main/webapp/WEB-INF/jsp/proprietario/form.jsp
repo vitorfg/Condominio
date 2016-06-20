@@ -13,12 +13,12 @@
 			document.getElementById("nomeProprietario").focus();
 
 			return false
-		} else if (document.getElementById("cpf").value.length != 11) {
+		} else if (document.getElementById("cpf").value.length != 14) {
 			alert('Por favor, preencha o campo cpf');
 			document.getElementById("cpf").focus();
 
 			return false
-		} else if ((document.getElementById("fone1").value.length < 8)) {
+		} else if ((document.getElementById("fone1").value.length < 14)) {
 			alert('Por favor, preencha com pelo menos o telefone 1');
 			document.getElementById("fone1").focus();
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="cpf">CPF *</label>
 				<input id="cpf"	class="form-control w3-input w3-border w3-round-large" type="text"
-					placeholder="e.x 0581452658" data-toggle="tooltip" title="CPF do proprietário"
+					placeholder="e.x 058.145.265-18" data-toggle="tooltip" title="CPF do proprietário"
 					name="proprietario.cpf" onkeypress="mascara(this,fcpf)" maxlength="14" value="${proprietario.cpf}" />
 			</div>
 		</div>
@@ -75,7 +75,7 @@ $(document).ready(function(){
 			<div class="w3-third conteudo">
 				<label for="fone1">Telefone Residencial *</label>
 				<input id="fone1" class="form-control w3-input w3-border w3-round-large" type="text"
-					placeholder="e.x 11 20173114" data-toggle="tooltip" title="Telefone do proprietário"
+					placeholder="e.x (11) 2017-3114" data-toggle="tooltip" title="Telefone do proprietário"
 					name="proprietario.fone1" onkeypress="mascara(this,ftelefone1)" maxlength="14" value="${proprietario.fone1}" />
 			</div>
 		</div>
