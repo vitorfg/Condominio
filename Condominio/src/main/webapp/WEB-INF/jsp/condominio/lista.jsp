@@ -9,8 +9,8 @@
 		<tr>
 			<th>Id</th>
 			<th>Apartamentos</th>
-			<th>Data De Referência</th>
 			<th>Total a Pagar</th>
+			<th>Data De Referência</th>
 			<th>Editar</th>
 			<th>Remover</th>
 			<th></th>

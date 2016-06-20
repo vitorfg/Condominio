@@ -28,8 +28,8 @@ public class DespesasController {
 	private ApartamentoDao apartamentoDao;
 
 	@Inject
-	public DespesasController(DespesasDao despesasDao, Validator validator, Result result,
-			CondominioDao condominioDao,ApartamentoDao apartamentoDao) {
+	public DespesasController(DespesasDao despesasDao, Validator validator, Result result, CondominioDao condominioDao,
+			ApartamentoDao apartamentoDao) {
 		this.despesasDao = despesasDao;
 		this.validator = validator;
 		this.result = result;
@@ -79,12 +79,12 @@ public class DespesasController {
 
 	@Delete("/despesa/{id}")
 	public void deleta(long id) {
-			despesasDao.deleta(id);
-			Despesas despesas = new Despesas();
-			despesas.setCondominio(condominioDao.busca(despesas.getIdCond()));
-			despesas.getCondominio().setTotalPagar(despesas.getCondominio().getTotalPagar() + despesas.getValorCobrado());
-			result.include("message", "Exclusão realizada com sucesso");
-			result.redirectTo(this).lista();
+		Despesas despesa = despesasDao.busca(id);
+		despesasDao.deleta(id);
+		despesa.getCondominio().setTotalPagar(despesa.getCondominio().getTotalPagar() - despesa.getValorCobrado());
+		condominioDao.adiciona(despesa.getCondominio());
+		result.include("message", "Exclusão realizada com sucesso");
+		result.redirectTo(this).lista();
 	}
 
 	/* MÉTODOS ESPECÍFICOS */
