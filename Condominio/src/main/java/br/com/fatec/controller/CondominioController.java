@@ -69,7 +69,9 @@ public class CondominioController {
 	public void adiciona(Condominio condominio) {
 		condominio.setApartamento(apartamentoDao.busca(condominio.getIdApt()));
 		validator.onErrorForwardTo(this).form();
-		condominio = carregaCondominio(condominio);
+		try{
+			condominio = carregaCondominio(condominio);
+		} catch(NullPointerException e){}
 		condominioDao.adiciona(condominio);
 		result.redirectTo(this).lista();
 	}
@@ -127,7 +129,7 @@ public class CondominioController {
 	private double geraJuros() {
 		Condominio cond = new Condominio();
 		double taxa = 1;
-
+		
 		if ((cond.getDataVencimento().compareTo(cond.getDataPagamento()) < 0)) {
 			if (cond.isPagouAtual()) {
 				taxa = 0.02;
