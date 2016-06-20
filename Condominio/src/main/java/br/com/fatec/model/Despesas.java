@@ -23,18 +23,16 @@ public class Despesas {
 	@NotNull
 	private String descricao;
 
-	@NotNull
-	private Double valorDespesa;
+	private double valorDespesa;
 
-	@NotNull
-	private Double valorCobrado;
+	private double valorCobrado;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Calendar dataReferencia;
 
-	@NotNull
-	private Boolean isEspecifico;
+	
+	private boolean especifico;
 
 	@ManyToOne
 	private Condominio condominio;
@@ -82,11 +80,11 @@ public class Despesas {
 	}
 
 	public boolean isEspecifico() {
-		return isEspecifico;
+		return especifico;
 	}
 
-	public void setEspecifico(boolean isEspecifico) {
-		this.isEspecifico = isEspecifico;
+	public void setEspecifico(boolean especifico) {
+		this.especifico = especifico;
 	}
 
 	public Condominio getCondominio() {
