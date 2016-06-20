@@ -10,6 +10,30 @@
 	$(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip();
 	});
+
+	function valida_form() {
+		if (document.getElementById("dataReferencia").value.length < 10) {
+			alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
+			document.getElementById("dataReferencia").focus();
+
+			return false
+		} else if ((document.getElementById("descricao").value == "")) {
+			alert('Por favor, selecione um apartamento');
+			document.getElementById("descricao").focus();
+
+			return false
+		}else if ((document.getElementById("valorDespesa").value == "")) {
+			alert('Por favor, selecione um apartamento');
+			document.getElementById("valorDespesa").focus();
+
+			return false
+		}else if ((document.getElementById("condominio").value == null)) {
+			alert('Por favor, selecione um apartamento');
+			document.getElementById("condominio").focus();
+
+			return false
+		}
+	}
 </script>
 
 <form action="${linkTo[DespesasController].adiciona(null)}"
