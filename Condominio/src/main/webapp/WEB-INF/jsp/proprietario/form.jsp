@@ -6,7 +6,7 @@
 
 <br>
 
-<script type="text/javascript" language="javascript">
+<script>
 	function valida_form() {
 		if (document.getElementById("nomeProprietario").value.length < 3) {
 			alert('Por favor, preencha o campo nome');
@@ -34,7 +34,7 @@ $(document).ready(function(){
 </script>
 
 <form action="${linkTo[ProprietarioController].adiciona(null)}"
-	method="post">
+	method="post" onsubmit="return valida_form(this)">
 
 	<input id="id" class="form-control" type="number"
 		name="proprietario.id" value="${proprietario.id}"
