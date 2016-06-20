@@ -63,6 +63,8 @@ public class DespesasController {
 		validator.onErrorForwardTo(this).form();
 		despesas = carregaDespesas(despesas);
 		despesasDao.adiciona(despesas);
+		despesas.getCondominio().setTotalPagar(despesas.getCondominio().getTotalPagar() + despesas.getValorCobrado());
+		condominioDao.adiciona(despesas.getCondominio());
 		result.redirectTo(this).lista();
 	}
 
@@ -78,6 +80,9 @@ public class DespesasController {
 	@Delete("/despesa/{id}")
 	public void deleta(long id) {
 			despesasDao.deleta(id);
+			Despesas despesas = new Despesas();
+			despesas.setCondominio(condominioDao.busca(despesas.getIdCond()));
+			despesas.getCondominio().setTotalPagar(despesas.getCondominio().getTotalPagar() + despesas.getValorCobrado());
 			result.include("message", "Exclusão realizada com sucesso");
 			result.redirectTo(this).lista();
 	}
@@ -103,9 +108,6 @@ public class DespesasController {
 		if (despesas.isEspecifico() == true) {
 			return despesas.getValorDespesa();
 		}
-		System.out.println(despesas.getCondominio());
-		System.out.println(despesas.getCondominio().getApartamento());
-		System.out.println(despesas.getCondominio().getApartamento().getQtdQuartos());
 		return (despesas.getValorDespesa() / geraNumTotalApartamentos())
 				* despesas.getCondominio().getApartamento().getQtdQuartos();
 	}
