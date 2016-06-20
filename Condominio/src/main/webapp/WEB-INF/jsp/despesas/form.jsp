@@ -18,12 +18,12 @@
 
 			return false
 		} else if ((document.getElementById("descricao").value == "")) {
-			alert('Por favor, selecione um apartamento');
+			alert('Por favor, escreva uma descrição');
 			document.getElementById("descricao").focus();
 
 			return false
 		}else if ((document.getElementById("valorDespesa").value == "")) {
-			alert('Por favor, selecione um apartamento');
+			alert('Por favor, preencha o campo Valor da despesa conforme o exemplo');
 			document.getElementById("valorDespesa").focus();
 
 			return false
