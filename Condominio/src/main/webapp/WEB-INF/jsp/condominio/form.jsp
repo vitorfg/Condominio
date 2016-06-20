@@ -60,10 +60,10 @@
 	<form name="frmCond"
 		action="${linkTo[CondominioController].adiciona(null)}" method="post"
 		onsubmit="return valida_form(this)">
-		
+
 		<input id="id" class="form-control" type="number" name="condominio.id"
-		value="${condominio.id}" style="display: none" />
-		
+			value="${condominio.id}" style="display: none" />
+
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="dataReferencia">Data de Referência *</label> <input
@@ -71,8 +71,7 @@
 					class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataReferencia" placeholder="e.x 10/06/2006"
 					data-toggle="tooltip" title="Data de referência do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
-					maxlength="10"
+					onkeypress="mascara(this,fdata)" maxlength="10"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataReferencia.time}"/>">
 			</div>
 		</div>
@@ -96,7 +95,7 @@
 					id="dataVencimento" placeholder="e.x 10/06/2016"
 					class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataVencimento" data-toggle="tooltip"
-					title="Data de vencimento do condominio" pattern="dd/MM/yyyy"
+					title="Data de vencimento do condominio"
 					onkeypress="mascara(this,fdata)" maxlength="10"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataVencimento.time}"/>">
 
@@ -110,8 +109,7 @@
 					class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataPagamento" placeholder="e.x 10/06/2016"
 					data-toggle="tooltip" title="Data de pagamento do condominio"
-					pattern="dd/MM/yyyy" onkeypress="mascara(this,fdata)"
-					maxlength="10"
+					onkeypress="mascara(this,fdata)" maxlength="10"
 					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataPagamento.time}"/>">
 
 			</div>
