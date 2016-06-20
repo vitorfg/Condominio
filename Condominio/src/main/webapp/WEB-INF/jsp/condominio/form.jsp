@@ -150,6 +150,7 @@
 				</select>
 			</div>
 		</div>
+		
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="totalPagar">Total a Pagar *</label> <input
