@@ -103,6 +103,9 @@ public class DespesasController {
 		if (despesas.isEspecifico() == true) {
 			return despesas.getValorDespesa();
 		}
+		System.out.println(despesas.getCondominio());
+		System.out.println(despesas.getCondominio().getApartamento());
+		System.out.println(despesas.getCondominio().getApartamento().getQtdQuartos());
 		return (despesas.getValorDespesa() / geraNumTotalApartamentos())
 				* despesas.getCondominio().getApartamento().getQtdQuartos();
 	}

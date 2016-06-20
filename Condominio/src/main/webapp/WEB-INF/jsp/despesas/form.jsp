@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+nop<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
@@ -23,7 +23,7 @@
 			<label for="descricao">Descrição *</label> <input id="descricao"
 				class="w3-input w3-border w3-round-large" type="text"
 				placeholder="e.x Conta de Luz" data-toggle="tooltip"
-				title="Descrição da despesa" name="despesa.descricao"
+				title="Descrição da despesa" name="despesas.descricao"
 				value="${despesas.descricao}" />
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 			<label for="valorDespesa">Valor da Despesa *</label> <input
 				id="valorDespesa" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 140.00" data-toggle="tooltip"
-				title="Valor da despesa" type="number" name="despesa.valorDespesa"
+				title="Valor da despesa" type="number" name="despesas.valorDespesa"
 				onkeypress="mascara(this,soNumeros)" maxlength="40"
 				value="${despesas.valorDespesa}" />
 		</div>
@@ -43,7 +43,7 @@
 				id="dataReferencia" class="w3-input w3-border w3-round-large"
 				placeholder="e.x 10/06/2006" data-toggle="tooltip"
 				title="Data de referência da despesa" type="text"
-				name="despesa.dataReferencia" onkeypress="mascara(this,fdata)"
+				name="despesas.dataReferencia" onkeypress="mascara(this,fdata)"
 				maxlength="10"
 				value="<fmt:formatDate pattern="dd/MM/yyyy" value="${despesas.dataReferencia.time}"/>">
 		</div>
@@ -52,7 +52,7 @@
 				<label for="condominio">Apartamento *</label> <select
 					class="w3-input w3-border w3-round-large" id="condominio"
 					data-toggle="tooltip" title="Condominio da despesa"
-					name="despesa.idCond" style="height: 36px;">
+					name="despesas.idCond" style="height: 36px;">
 					<c:forEach var="c" items="${condominios}">
 						<option value="${c.id}">${c.apartamento.numeroApt}</option>
 					</c:forEach>
@@ -65,11 +65,11 @@
 			<label for="especifico" data-toggle="tooltip" title="Específico">Específico</label>
 			<input id="especifico" class="w3-radio w3-border w3-round-large"
 				data-toggle="tooltip" title="Específico" type="radio"
-				name="despesa.especifico" value="true" /> &nbsp; <label
+				name="despesas.especifico" value="true" /> &nbsp; <label
 				for="especifico" data-toggle="tooltip" title="Comum">Comum </label>
 			<input id="especifico" class="w3-radio w3-border w3-round-large"
 				data-toggle="tooltip" title="Comum" type="radio"
-				name="despesa.especifico" value="false" checked="checked">
+				name="despesas.especifico" value="false" checked="checked">
 		</div>
 	</div>
 	<div class="w3-row-padding">
