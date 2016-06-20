@@ -10,7 +10,7 @@
 
 	<script type="text/javascript" language="javascript">
 		function valida_form() {
-			if (document.getElementById("dataReferencia").value.length < 9) {
+			if (document.getElementById("dataReferencia").value.length < 10) {
 				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 				document.getElementById("dataReferencia").focus();
 
@@ -20,7 +20,7 @@
 				document.getElementById("dataEmissao").focus();
 
 				return false
-			}else if (document.getElementById("dataVencimento").value.length < 9) {
+			}else if (document.getElementById("dataVencimento").value.length < 10) {
 				alert('Por favor, preencha o campo de Data de Vencimento conforme o exemplo');
 				document.getElementById("dataVencimento").focus();
 
@@ -94,7 +94,7 @@
 					name="condominio.dataEmissao" placeholder="e.x 10/06/2006"
 					data-toggle="tooltip" title="Data de emissão do condominio"
 					onkeypress="mascara(this,fdata)" maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy"  value="${condominio.dataEmissao.time}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" enable="false" value="${condominio.dataEmissao.time}"/>">
 
 			</div>
 		</div>
