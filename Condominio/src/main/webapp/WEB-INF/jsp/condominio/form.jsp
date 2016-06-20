@@ -150,19 +150,6 @@
 				</select>
 			</div>
 		</div>
-
-		<div class="w3-row-padding">
-			<div class="w3-third conteudo">
-				<label for="porcentagemJuros">Porcentagem de Juros *</label> <input
-					id="porcentagemJuros"
-					class="form-control w3-input w3-border w3-round-large"
-					type="number" name="condominio.porcentagemJuros"
-					placeholder="e.x 2" data-toggle="tooltip"
-					title="porcentagem de juros do condominio"
-					onkeypress="mascara(this,soNumeros)" maxlength="3"
-					value="${condominio.porcentagemJuros}" />
-			</div>
-		</div>
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
 				<label for="totalPagar">Total a Pagar *</label> <input
