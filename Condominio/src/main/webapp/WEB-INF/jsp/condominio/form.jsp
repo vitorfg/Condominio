@@ -10,34 +10,24 @@
 
 	<script type="text/javascript" language="javascript">
 		function valida_form() {
-			if (document.getElementById("dataReferencia").value.length < 10) {
+			if (document.getElementById("dataReferencia").value.length < 9) {
 				alert('Por favor, preencha o campo de Data de referencia conforme o exemplo');
 				document.getElementById("dataReferencia").focus();
 
 				return false
-			}else if (document.getElementById("dataEmissao").value.length < 10) {
+			}else if (document.getElementById("dataEmissao").value.length < 9) {
 				alert('Por favor, preencha o campo de Data de Emissao conforme o exemplo');
 				document.getElementById("dataEmissao").focus();
 
 				return false
-			}else if (document.getElementById("dataVencimento").value.length < 10) {
+			}else if (document.getElementById("dataVencimento").value.length < 9) {
 				alert('Por favor, preencha o campo de Data de Vencimento conforme o exemplo');
 				document.getElementById("dataVencimento").focus();
-
-				return false
-			}else if (document.getElementById("dataPagamento").value.length < 10) {
-				alert('Por favor, preencha o campo de Data de Pagamento conforme o exemplo');
-				document.getElementById("dataPagamento").focus();
 
 				return false
 			}else if (document.getElementById("apartamento").value == null) {
 				alert('Por favor, selecione ao o apartamento');
 				document.getElementById("apartamento").focus();
-
-				return false
-			}else if (document.getElementById("totalPagar").value == "") {
-				alert('Por favor, preencha o campo Total a pagar conforme o exemplo');
-				document.getElementById("totalPagar").focus();
 
 				return false
 			}
@@ -124,7 +114,7 @@
 
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo">
-				<label for="dataPagamento">Data de Pagamento *</label> <input
+				<label for="dataPagamento">Data de Pagamento </label> <input
 					id="dataPagamento"
 					class="form-control w3-input w3-border w3-round-large" type="text"
 					name="condominio.dataPagamento" placeholder="e.x 10/06/2016"
@@ -171,17 +161,6 @@
 			</div>
 		</div>
 		
-		<div class="w3-row-padding">
-			<div class="w3-third conteudo">
-				<label for="totalPagar">Total a Pagar *</label> <input
-					id="totalPagar"
-					class="form-control w3-input w3-border w3-round-large"
-					type="number" placeholder="e.x 120.00" data-toggle="tooltip"
-					title="Total a pagar do condominio" name="condominio.totalPagar"
-					onkeypress="mascara(this,soNumeros)" maxlength="40"
-					value="${condominio.totalPagar}" />
-			</div>
-		</div>
 		<div class="w3-row-padding">
 			<div class="w3-third conteudo" style="width: 371px;">
 				<label for="pagouAtual" data-toggle="tooltip"

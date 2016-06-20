@@ -9,7 +9,7 @@
 		<div class="form-group">
 			<label>Sistema desenvolvido por:</label><br /> <br /> Emerson
 			Santos<br /> Erick Rosa<br /> Guilherme Vasconcellos<br /> Vitor
-			Garcia<br /> William Guedes
+			Garcia<br /> Willian Guedes
 		</div>
 	</div>
 </div>
