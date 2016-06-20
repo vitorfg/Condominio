@@ -94,7 +94,7 @@
 					name="condominio.dataEmissao" placeholder="e.x 10/06/2006"
 					data-toggle="tooltip" title="Data de emissão do condominio"
 					onkeypress="mascara(this,fdata)" maxlength="10"
-					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataEmissao.time}"/>">
+					value="<fmt:formatDate pattern="dd/MM/yyyy" value="${condominio.dataEmissao.time}" disabled/>">
 
 			</div>
 		</div>
