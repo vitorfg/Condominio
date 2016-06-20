@@ -10,6 +10,7 @@
 			<th>Id</th>
 			<th>Apartamentos</th>
 			<th>Data De Referência</th>
+			<th>Total a Pagar</th>
 			<th>Editar</th>
 			<th>Remover</th>
 			<th></th>
@@ -22,6 +23,7 @@
 			<tr>
 				<td>${c.id}</td>
 				<td>${c.apartamento.numeroApt}</td>
+				<td>${c.totalPagar}</td>
 				<td>${c.dataReferencia.time}</td>
 
 				<td><a href="${linkTo[CondominioController].altera(c.id)}">
